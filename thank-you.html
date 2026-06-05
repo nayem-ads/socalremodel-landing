@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You! | SoCal Remodel Quotes</title>
+  <meta name="description" content="Thank you for requesting a free remodeling quote. A SoCal specialist will contact you shortly." />
+  <!-- IMPORTANT: Noindex this page to keep it off search engines -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ========================
+       LEAD TRACKING PIXELS
+       Replace with your actual:
+       - Google Ads Conversion Tag
+       - Facebook Pixel
+       - GA4 Event
+  ======================== -->
+  <!-- Google tag (gtag.js) — uncomment & replace G-XXXXXXXX -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXX');
+    // Fire lead conversion event
+    gtag('event', 'conversion', {
+      'send_to': 'AW-XXXXXXXXX/XXXXXXXXXX',  // Your Google Ads conversion label
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  </script>
+  -->
+
+  <!-- Facebook Pixel — uncomment & replace XXXXXXXXXXXXXXXX -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXXX');
+    fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=Lead&noscript=1" /></noscript>
+  -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2a52 0%, #1e5bc6 100%);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      color: #1a1a2e;
+    }
+
+    :root {
+      --navy: #0f2a52;
+      --blue: #1e5bc6;
+      --accent: #f4a922;
+      --green: #22c55e;
+      --white: #ffffff;
+      --radius: 20px;
+    }
+
+    /* ── HEADER ── */
+    .ty-header {
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .ty-logo {
+      font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800;
+      color: #fff; display: flex; align-items: center; gap: 10px;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .ty-logo .logo-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .ty-logo .accent { color: var(--accent); }
+
+    /* ── MAIN CARD ── */
+    .ty-main {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px;
+    }
+    .ty-card {
+      background: #fff;
+      border-radius: 24px;
+      max-width: 680px; width: 100%;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.25);
+      animation: slideUp .6s ease both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CHECK ANIMATION ── */
+    .ty-success-bar {
+      background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+      padding: 44px 40px 36px;
+      text-align: center;
+    }
+    .ty-check-circle {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      border: 3px solid rgba(255,255,255,.6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 44px;
+      margin: 0 auto 20px;
+      animation: popIn .5s cubic-bezier(.17,.67,.3,1.3) .3s both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .ty-success-bar h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 30px; font-weight: 800; color: #fff;
+      margin-bottom: 8px;
+    }
+    .ty-success-bar p { color: rgba(255,255,255,.85); font-size: 16px; }
+
+    /* ── CARD BODY ── */
+    .ty-body { padding: 40px; }
+
+    .ty-name-greeting {
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px; font-weight: 800; color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .ty-summary { color: #475569; font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+
+    /* ── NEXT STEPS ── */
+    .next-steps-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px; font-weight: 700; color: var(--navy);
+      margin-bottom: 16px; text-transform: uppercase; letter-spacing: .05em;
+    }
+    .next-steps { list-style: none; margin-bottom: 32px; }
+    .next-steps li {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .next-steps li:last-child { border: none; }
+    .step-badge {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-info h4 { font-size: 15px; color: var(--navy); margin-bottom: 3px; }
+    .step-info p  { font-size: 14px; color: #64748b; }
+
+    /* ── CTA BUTTONS ── */
+    .ty-cta-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .ty-btn {
+      flex: 1; min-width: 180px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px 24px; border-radius: 12px;
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: all .2s ease; text-align: center;
+    }
+    .ty-btn-primary { background: var(--accent); color: var(--navy); box-shadow: 0 4px 16px rgba(244,169,34,.4); }
+    .ty-btn-primary:hover { background: #e09410; transform: translateY(-2px); }
+    .ty-btn-secondary { background: #f8faff; color: var(--navy); border: 1.5px solid #e2e8f0; }
+    .ty-btn-secondary:hover { background: #f1f5f9; transform: translateY(-2px); }
+
+    /* ── REFERRAL BOX ── */
+    .referral-box {
+      background: linear-gradient(135deg, #fef9ec 0%, #fff8e1 100%);
+      border: 1.5px solid rgba(244,169,34,.25);
+      border-radius: 14px; padding: 24px;
+      text-align: center;
+    }
+    .referral-box h4 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px; font-weight: 800; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .referral-box p { font-size: 14px; color: #64748b; margin-bottom: 16px; }
+    .share-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: flex; align-items: center; gap: 7px;
+      padding: 10px 18px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      border: none; text-decoration: none; transition: all .2s;
+    }
+    .share-btn.fb { background: #1877f2; color: #fff; }
+    .share-btn.fb:hover { background: #166fe5; }
+    .share-btn.wa { background: #25d366; color: #fff; }
+    .share-btn.wa:hover { background: #1fba58; }
+    .share-btn.copy { background: var(--navy); color: #fff; }
+    .share-btn.copy:hover { background: #1a3a6b; }
+
+    /* ── TRUST FOOTER ── */
+    .ty-trust {
+      margin-top: 28px; padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .ty-trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: #94a3b8; }
+    .ty-trust-item .ico { font-size: 16px; }
+
+    /* ── LEAD TRACKING SECTION (hidden, for debug) ── */
+    .tracking-debug {
+      background: #f8faff; border-radius: 14px;
+      padding: 20px 24px; margin: 24px 0;
+      border: 1.5px solid #e2e8f0;
+      font-size: 13px; color: #475569;
+    }
+    .tracking-debug h5 {
+      font-size: 13px; font-weight: 700; color: var(--navy);
+      margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em;
+    }
+    .tracking-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f1f5f9; }
+    .tracking-row:last-child { border: none; }
+    .tracking-key { font-weight: 600; }
+    .tracking-val { color: var(--blue); }
+
+    /* ── COUNTDOWN ── */
+    .countdown-box {
+      background: var(--navy); color: #fff;
+      border-radius: 14px; padding: 20px 24px;
+      text-align: center; margin-bottom: 28px;
+    }
+    .countdown-box p { color: rgba(255,255,255,.75); font-size: 14px; margin-bottom: 8px; }
+    .countdown-num { font-family: 'Manrope', sans-serif; font-size: 40px; font-weight: 800; color: var(--accent); line-height: 1; }
+    .countdown-lbl { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 4px; }
+
+    /* ── FOOTER ── */
+    .ty-footer {
+      background: rgba(0,0,0,.2); padding: 20px 24px;
+      text-align: center; font-size: 13px; color: rgba(255,255,255,.5);
+    }
+    .ty-footer a { color: rgba(255,255,255,.6); text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .ty-body { padding: 28px 22px; }
+      .ty-success-bar { padding: 36px 22px 28px; }
+      .ty-success-bar h1 { font-size: 24px; }
+      .ty-cta-group { flex-direction: column; }
+      .ty-btn { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="ty-header">
+    <div class="ty-logo">
+      <div class="logo-icon">🏠</div>
+      <div>
+        <span>SoCal</span><span class="accent">Remodel</span> Quotes
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="ty-main">
+    <div class="ty-card">
+
+      <!-- SUCCESS BAR -->
+      <div class="ty-success-bar">
+        <div class="ty-check-circle">✓</div>
+        <h1>You're All Set!</h1>
+        <p>Your free quote request has been received.</p>
+      </div>
+
+      <!-- CARD BODY -->
+      <div class="ty-body">
+
+        <!-- Dynamic Greeting -->
+        <p class="ty-name-greeting" id="ty-greeting">Thanks for reaching out! 🎉</p>
+        <p class="ty-summary" id="ty-summary">
+          A licensed SoCal remodeling specialist will contact you within <strong>24 hours</strong> — usually same day — to discuss your project and schedule your free consultation.
+        </p>
+
+        <!-- Countdown to callback -->
+        <div class="countdown-box">
+          <p>🕐 Estimated callback in:</p>
+          <div class="countdown-num" id="countdown-display">2:00:00</div>
+          <div class="countdown-lbl">hours — during business hours (Mon–Sat, 7am–7pm PST)</div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps-title">What Happens Next</div>
+        <ul class="next-steps">
+          <li>
+            <div class="step-badge">1</div>
+            <div class="step-info">
+              <h4>Check Your Email</h4>
+              <p>You'll receive a confirmation email with your request details and our contact info.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-badge">2</div>
+            <div class="step-info">
+              <h4>Expect Our Call</h4>
+              <p>A local specialist will call you within 24 hours to learn more about your vision.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-badge">3</div>
+            <div class="step-info">
+              <h4>Free In-Home Consultation</h4>
+              <p>We'll visit your home, take measurements, and discuss design options — at zero cost.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-badge">4</div>
+            <div class="step-info">
+              <h4>Receive Your Detailed Quote</h4>
+              <p>Get an itemized estimate with no hidden fees. You decide if you want to move forward.</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- CTA Buttons -->
+        <div class="ty-cta-group">
+          <a href="tel:+18005550000" class="ty-btn ty-btn-primary" id="call-now-btn">
+            📞 Call Us Now
+          </a>
+          <a href="index.html" class="ty-btn ty-btn-secondary">
+            ← Back to Home
+          </a>
+        </div>
+
+        <!-- Lead Data Debug Panel (admin view, hidden from users) -->
+        <div class="tracking-debug" id="lead-tracking-panel" style="display:none;">
+          <h5>📊 Lead Tracking Data</h5>
+          <div id="tracking-data-rows"></div>
+        </div>
+
+        <!-- Referral Box -->
+        <div class="referral-box">
+          <h4>Know Someone Who Needs a Remodel?</h4>
+          <p>Share SoCal Remodel Quotes with friends and family in Southern California.</p>
+          <div class="share-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn fb">
+              👍 Share on Facebook
+            </a>
+            <a href="https://wa.me/?text=Check%20out%20SoCal%20Remodel%20Quotes%20for%20free%20home%20remodeling%20estimates!%20https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn wa">
+              💬 Share on WhatsApp
+            </a>
+            <button class="share-btn copy" onclick="copyLink()">
+              🔗 Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- Trust Row -->
+        <div class="ty-trust">
+          <div class="ty-trust-item"><span class="ico">🔒</span> Your data is secure</div>
+          <div class="ty-trust-item"><span class="ico">✅</span> Licensed & Insured</div>
+          <div class="ty-trust-item"><span class="ico">⭐</span> 4.9/5 Rating</div>
+          <div class="ty-trust-item"><span class="ico">🚫</span> No spam, ever</div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="ty-footer">
+    © 2025 SoCal Remodel Quotes · <a href="tel:+18005550000">(800) 555-0000</a> · All rights reserved
+  </footer>
+
+  <!-- ============================
+       JAVASCRIPT
+  ============================ -->
+  <script>
+    // ── PARSE URL PARAMS ─────────────────────────
+    const params = new URLSearchParams(window.location.search);
+    const leadName    = params.get('name')    || '';
+    const leadService = params.get('service') || '';
+    const leadPhone   = params.get('phone')   || '';
+    const leadTs      = params.get('ts')      || Date.now();
+
+    // ── PERSONALIZE GREETING ─────────────────────
+    if (leadName) {
+      document.getElementById('ty-greeting').textContent = 'Thanks, ' + leadName + '! 🎉';
+    }
+    if (leadService && leadService !== 'call-back') {
+      const serviceMap = {
+        'kitchen': 'Kitchen Remodel',
+        'bathroom': 'Bathroom Remodel',
+        'home-addition': 'Home Addition',
+        'adu': 'ADU / Garage Conversion',
+        'room': 'Room Addition',
+        'second-story': 'Second Story Addition',
+        'whole-home': 'Whole Home Renovation',
+      };
+      const svcLabel = serviceMap[leadService] || leadService;
+      document.getElementById('ty-summary').innerHTML =
+        'Your <strong>' + svcLabel + '</strong> quote request has been received. A licensed SoCal specialist will contact you within <strong>24 hours</strong> — usually same day — to discuss your project and schedule your free in-home consultation.';
+    }
+
+    // ── LEAD TRACKING DISPLAY ────────────────────
+    // Get last lead from localStorage
+    const leads = JSON.parse(localStorage.getItem('scr_leads') || '[]');
+    const lastLead = leads[leads.length - 1] || {};
+
+    // Build tracking data for admin/debug — show only if ?admin=1
+    if (params.get('admin') === '1') {
+      const panel = document.getElementById('lead-tracking-panel');
+      const rows  = document.getElementById('tracking-data-rows');
+      panel.style.display = 'block';
+      const trackData = { ...lastLead, url_params: Object.fromEntries(params) };
+      Object.entries(trackData).forEach(([k, v]) => {
+        const row = document.createElement('div');
+        row.className = 'tracking-row';
+        row.innerHTML = '<span class="tracking-key">' + k + '</span><span class="tracking-val">' + (typeof v === 'object' ? JSON.stringify(v) : v) + '</span>';
+        rows.appendChild(row);
+      });
+    }
+
+    // ── UTM / SOURCE TRACKING ────────────────────
+    function getCookie(name) {
+      const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+
+    const trackingPayload = {
+      timestamp:    new Date().toISOString(),
+      lead_id:      leadTs,
+      name:         leadName,
+      service:      leadService,
+      phone:        leadPhone || lastLead.phone,
+      email:        lastLead.email,
+      referrer:     document.referrer || 'direct',
+      utm_source:   params.get('utm_source') || getCookie('utm_source') || '',
+      utm_medium:   params.get('utm_medium') || getCookie('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || getCookie('utm_campaign') || '',
+      utm_term:     params.get('utm_term') || '',
+      page_url:     window.location.href,
+      user_agent:   navigator.userAgent,
+    };
+
+    // Save tracking payload — replace with CRM/webhook call
+    console.log('[SoCal Lead Tracker] New lead:', trackingPayload);
+    localStorage.setItem('scr_last_conversion', JSON.stringify(trackingPayload));
+
+    /*
+    ─────────────────────────────────────────
+    WEBHOOK INTEGRATION EXAMPLE
+    Uncomment and replace URL to send to CRM:
+    ─────────────────────────────────────────
+    fetch('https://hooks.zapier.com/hooks/catch/XXXXXXX/XXXXXXX/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(trackingPayload)
+    }).catch(console.error);
+    */
+
+    // ── COUNTDOWN TIMER ──────────────────────────
+    const CALLBACK_HOURS = 2;
+    let remaining = CALLBACK_HOURS * 3600;
+
+    function updateCountdown() {
+      const h = Math.floor(remaining / 3600);
+      const m = Math.floor((remaining % 3600) / 60);
+      const s = remaining % 60;
+      const display = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+      document.getElementById('countdown-display').textContent = display;
+      if (remaining > 0) {
+        remaining--;
+        setTimeout(updateCountdown, 1000);
+      } else {
+        document.getElementById('countdown-display').textContent = 'Calling soon!';
+      }
+    }
+    updateCountdown();
+
+    // ── COPY LINK ────────────────────────────────
+    function copyLink() {
+      const url = 'https://www.socalremodelquotes.com';
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.querySelector('.share-btn.copy');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.innerHTML = '🔗 Copy Link'; }, 2000);
+      });
+    }
+
+    // ── GOOGLE ADS CONVERSION (replace with real tag) ────
+    // If you add gtag above, uncomment:
+    // if (typeof gtag === 'function') {
+    //   gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XXXX' });
+    // }
+
+    // ── FACEBOOK PIXEL LEAD EVENT ────────────────
+    // if (typeof fbq === 'function') {
+    //   fbq('track', 'Lead', { value: 1, currency: 'USD' });
+    // }
+  </script>
+
+</body>
+</html>

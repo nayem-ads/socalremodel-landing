@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoCal Remodel Quotes | Free Home Remodeling Quotes in Southern California</title>
+  <meta name="description" content="Get a free, no-obligation remodeling quote from Southern California's trusted contractors. Kitchen remodels, home additions, ADUs, bathrooms & more. Licensed, bonded & insured." />
+  <meta property="og:title" content="SoCal Remodel Quotes – Free Quote, No Obligation" />
+  <meta property="og:description" content="Transform your home with SoCal's top-rated remodeling team. Kitchens, additions, ADUs & more." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================
+       RESET & BASE
+    ============================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================
+       CSS VARIABLES
+    ============================ */
+    :root {
+      --navy:      #0f2a52;
+      --navy-mid:  #1a3a6b;
+      --blue:      #1e5bc6;
+      --blue-light:#2667ff;
+      --accent:    #f4a922;
+      --accent-hover: #e09410;
+      --green:     #22c55e;
+      --text:      #1a1a2e;
+      --muted:     #64748b;
+      --border:    #e2e8f0;
+      --bg-light:  #f8faff;
+      --white:     #ffffff;
+      --radius:    12px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    /* ============================
+       TYPOGRAPHY
+    ============================ */
+    h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; font-weight: 800; line-height: 1.15; }
+    p { line-height: 1.7; color: var(--muted); }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================
+       UTILITY
+    ============================ */
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 0; }
+    .section-sm { padding: 56px 0; }
+    .text-center { text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(30,91,198,.1); color: var(--blue);
+      font-size: 13px; font-weight: 600; letter-spacing: .04em;
+      padding: 6px 14px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .badge.green { background: rgba(34,197,94,.12); color: #16a34a; }
+    .section-title {
+      font-size: clamp(26px, 4vw, 40px);
+      color: var(--navy);
+      margin: 12px 0 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--muted); max-width: 580px;
+    }
+
+    /* ============================
+       BUTTONS
+    ============================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: 'Manrope', sans-serif; font-weight: 700;
+      font-size: 16px; padding: 16px 32px; border-radius: var(--radius);
+      cursor: pointer; border: none; transition: all .22s ease;
+      text-align: center; line-height: 1.2;
+    }
+    .btn-primary {
+      background: var(--accent); color: var(--navy);
+      box-shadow: 0 4px 20px rgba(244,169,34,.4);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,169,34,.5); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,.5);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+    .btn-block { width: 100%; }
+    .btn-lg { font-size: 18px; padding: 20px 40px; }
+    .btn-dark { background: var(--navy); color: var(--white); }
+    .btn-dark:hover { background: var(--navy-mid); transform: translateY(-2px); }
+
+    /* ============================
+       TOP BAR
+    ============================ */
+    .topbar {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 0;
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: center; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .topbar-item {
+      display: flex; align-items: center; gap: 7px;
+    }
+    .topbar-item .icon { font-size: 16px; }
+
+    /* ============================
+       HEADER / NAV
+    ============================ */
+    .header {
+      position: sticky; top: 0; z-index: 1000;
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(0,0,0,.09);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800;
+      color: var(--navy);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 20px;
+    }
+    .logo span.accent { color: var(--accent); }
+    .header-cta-group {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header-phone {
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 15px; color: var(--navy);
+    }
+    .header-phone .ph-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+
+    /* ============================
+       HERO SECTION
+    ============================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('hero.png');
+      background-size: cover; background-position: center top;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg,
+        rgba(10,25,60,.92) 0%,
+        rgba(15,42,82,.85) 45%,
+        rgba(15,42,82,.40) 100%
+      );
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 440px;
+      gap: 48px; align-items: center;
+      padding: 100px 20px 80px;
+      max-width: 1120px; margin: 0 auto; width: 100%;
+    }
+    .hero-content { color: #fff; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(244,169,34,.18);
+      border: 1px solid rgba(244,169,34,.4);
+      color: var(--accent); font-size: 13px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(32px, 5vw, 54px);
+      color: #fff; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero-title span.highlight {
+      color: var(--accent);
+      position: relative;
+    }
+    .hero-desc {
+      font-size: 18px; color: rgba(255,255,255,.82);
+      line-height: 1.7; margin-bottom: 32px;
+      max-width: 500px;
+    }
+    .hero-trust {
+      display: flex; align-items: center; gap: 16px;
+      flex-wrap: wrap; margin-top: 28px;
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.85); font-size: 14px; font-weight: 500;
+    }
+    .trust-badge .dot { color: var(--green); font-size: 18px; }
+
+    /* ============================
+       HERO FORM CARD
+    ============================ */
+    .hero-form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .form-card-header {
+      background: var(--navy);
+      border-radius: 12px 12px 0 0;
+      margin: -36px -32px 28px;
+      padding: 20px 32px;
+      text-align: center;
+    }
+    .form-card-header h3 {
+      color: #fff; font-size: 20px; margin-bottom: 4px;
+    }
+    .form-card-header p {
+      color: rgba(255,255,255,.75); font-size: 13px; margin: 0;
+    }
+    .form-card-header .free-badge {
+      display: inline-block;
+      background: var(--accent); color: var(--navy);
+      font-size: 11px; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+      margin-bottom: 8px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: #475569; margin-bottom: 5px;
+    }
+    .form-control {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px; font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text); background: #f8faff;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .form-control:focus {
+      border-color: var(--blue); background: #fff;
+      box-shadow: 0 0 0 3px rgba(30,91,198,.1);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit-btn {
+      width: 100%; background: var(--accent); color: var(--navy);
+      border: none; border-radius: 10px;
+      padding: 18px; font-family: 'Manrope', sans-serif;
+      font-size: 17px; font-weight: 800;
+      cursor: pointer; margin-top: 6px;
+      transition: all .22s ease;
+      box-shadow: 0 4px 20px rgba(244,169,34,.45);
+      letter-spacing: .01em;
+    }
+    .form-submit-btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,169,34,.55); }
+    .form-privacy {
+      text-align: center; font-size: 12px; color: #94a3b8;
+      margin-top: 10px; line-height: 1.5;
+    }
+    .form-privacy .lock { color: var(--green); }
+
+    /* ============================
+       STATS BAR
+    ============================ */
+    .stats-bar {
+      background: var(--navy);
+      padding: 32px 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px; text-align: center;
+    }
+    .stat-item {}
+    .stat-number {
+      font-family: 'Manrope', sans-serif;
+      font-size: 36px; font-weight: 800; color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label { font-size: 14px; color: rgba(255,255,255,.75); margin-top: 4px; }
+
+    /* ============================
+       SERVICES SECTION
+    ============================ */
+    .services { background: var(--bg-light); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .service-card {
+      background: #fff; border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--border);
+      transition: all .25s ease;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      opacity: 0; transition: opacity .25s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(30,91,198,.2); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      background: rgba(30,91,198,.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 18px;
+    }
+    .service-card h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; }
+    .service-card p { font-size: 15px; line-height: 1.65; }
+    .service-tag {
+      display: inline-block; margin-top: 14px;
+      background: rgba(30,91,198,.08); color: var(--blue);
+      font-size: 12px; font-weight: 600; padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ============================
+       HOW IT WORKS
+    ============================ */
+    .how-it-works { background: #fff; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; margin-top: 48px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 28px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+      opacity: .2; z-index: 0;
+    }
+    .step-item { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 20px rgba(15,42,82,.3);
+    }
+    .step-item h4 { font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+    .step-item p { font-size: 14px; }
+
+    /* ============================
+       WHY US SECTION
+    ============================ */
+    .why-us { background: var(--bg-light); }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .why-visual {
+      position: relative; border-radius: 20px; overflow: hidden;
+    }
+    .why-img {
+      width: 100%; height: 420px; object-fit: cover; border-radius: 20px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-badge-float {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--accent); color: var(--navy);
+      border-radius: 16px; padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      font-family: 'Manrope', sans-serif;
+    }
+    .why-badge-float .num { font-size: 38px; font-weight: 800; line-height: 1; }
+    .why-badge-float .lbl { font-size: 13px; font-weight: 600; opacity: .85; }
+    .why-list { list-style: none; margin: 24px 0 32px; }
+    .why-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .why-list li:last-child { border-bottom: none; }
+    .why-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(34,197,94,.12); color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0; margin-top: 2px;
+    }
+    .why-list-text h4 { font-size: 15px; color: var(--navy); margin-bottom: 3px; }
+    .why-list-text p { font-size: 14px; margin: 0; }
+
+    /* ============================
+       TESTIMONIALS
+    ============================ */
+    .testimonials { background: var(--navy); }
+    .testimonials .section-title { color: #fff; }
+    .testimonials .section-sub { color: rgba(255,255,255,.65); }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,.06);
+      border: 1.5px solid rgba(255,255,255,.1);
+      border-radius: 16px; padding: 28px;
+      transition: background .25s;
+    }
+    .testi-card:hover { background: rgba(255,255,255,.1); }
+    .stars { color: var(--accent); font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-text { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: 17px;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; color: #fff; font-size: 14px; }
+    .testi-location { font-size: 13px; color: rgba(255,255,255,.5); }
+
+    /* ============================
+       LEAD MAGNET / OFFER SECTION
+    ============================ */
+    .offer-section {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+      border-top: 1px solid rgba(30,91,198,.1);
+      border-bottom: 1px solid rgba(30,91,198,.1);
+    }
+    .offer-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .offer-list { list-style: none; margin: 20px 0; }
+    .offer-list li {
+      display: flex; gap: 12px; align-items: center;
+      font-size: 16px; color: var(--text); font-weight: 500;
+      padding: 10px 0; border-bottom: 1px dashed rgba(30,91,198,.15);
+    }
+    .offer-list li:last-child { border: none; }
+    .offer-list .ico { font-size: 20px; }
+    .offer-form-box {
+      background: #fff; border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: var(--shadow-md);
+      border: 1.5px solid rgba(30,91,198,.1);
+    }
+    .offer-form-box h3 {
+      font-size: 22px; color: var(--navy); margin-bottom: 8px;
+    }
+    .offer-form-box p { font-size: 15px; margin-bottom: 24px; }
+
+    /* ============================
+       FAQ
+    ============================ */
+    .faq { background: #fff; }
+    .faq-grid { max-width: 760px; margin: 48px auto 0; }
+    .faq-item {
+      border: 1.5px solid var(--border); border-radius: 12px;
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; background: none; border: none;
+      padding: 20px 24px; text-align: left; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--navy); transition: background .2s;
+    }
+    .faq-question:hover { background: var(--bg-light); }
+    .faq-arrow { font-size: 18px; transition: transform .25s; color: var(--blue); }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .3s;
+      font-size: 15px; color: var(--muted); line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { max-height: 200px; }
+    .faq-answer-inner { padding: 0 24px 20px; }
+
+    /* ============================
+       FINAL CTA
+    ============================ */
+    .final-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 100px 0; text-align: center;
+    }
+    .final-cta h2 { color: #fff; font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,.75); font-size: 18px; margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .cta-form-inline {
+      display: flex; gap: 12px; max-width: 560px; margin: 0 auto;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .cta-form-inline input {
+      flex: 1; min-width: 200px;
+      padding: 16px 20px; border-radius: 10px; border: 2px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.1); color: #fff;
+      font-size: 16px; font-family: 'Inter', sans-serif; outline: none;
+    }
+    .cta-form-inline input::placeholder { color: rgba(255,255,255,.55); }
+    .cta-form-inline input:focus { border-color: var(--accent); }
+    .cta-badges {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .cta-badge-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.75); font-size: 14px; font-weight: 500;
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      background: #0a1628; color: rgba(255,255,255,.6);
+      padding: 40px 0; font-size: 14px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ============================
+       STICKY MOBILE CTA
+    ============================ */
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: var(--navy);
+      padding: 12px 16px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+      gap: 8px;
+    }
+    .mobile-sticky-cta a, .mobile-sticky-cta button {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 14px 16px; border-radius: 10px;
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
+      cursor: pointer; border: none; text-decoration: none;
+    }
+    .msb-call { background: var(--green); color: #fff; }
+    .msb-quote { background: var(--accent); color: var(--navy); }
+
+    /* ============================
+       ANIMATIONS
+    ============================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp .7s ease forwards; }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .2s; }
+    .delay-3 { animation-delay: .35s; }
+    .delay-4 { animation-delay: .5s; }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-form-card { max-width: 520px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .offer-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .section { padding: 56px 0; }
+      .hero-inner { padding: 80px 16px 60px; }
+      .hero-title { font-size: 30px; }
+      .hero-desc { font-size: 16px; }
+      .hero-form-card { padding: 28px 20px; }
+      .form-card-header { margin: -28px -20px 24px; padding: 18px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .topbar-inner { gap: 12px; font-size: 13px; }
+      .header-phone span { display: none; }
+      .cta-form-inline { flex-direction: column; }
+      .cta-form-inline input { min-width: unset; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .mobile-sticky-cta { display: flex; }
+      body { padding-bottom: 72px; }
+      .why-badge-float { right: 12px; bottom: 12px; }
+      .offer-form-box { padding: 28px 20px; }
+    }
+
+    @media (max-width: 420px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .hero-trust { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="topbar-item">
+          <span class="icon">📍</span>
+          Serving All of Southern California
+        </div>
+        <div class="topbar-item">
+          <span class="icon">⭐</span>
+          4.9/5 Rating · 500+ Projects Completed
+        </div>
+        <div class="topbar-item">
+          <span class="icon">🏆</span>
+          Licensed · Bonded · Insured
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🏠</div>
+        <div>
+          <span>SoCal</span><span class="accent">Remodel</span>
+          <div style="font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: .04em; text-transform: uppercase;">Quotes</div>
+        </div>
+      </div>
+      <div class="header-cta-group">
+        <a href="tel:+18005550000" class="header-phone">
+          <div class="ph-icon">📞</div>
+          <span>(800) 555-0000</span>
+        </a>
+        <a href="#lead-form" class="btn btn-primary" style="padding: 12px 22px; font-size: 14px;">
+          Free Quote →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================
+       HERO SECTION
+  ============================ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner container">
+
+      <!-- Left: Copy -->
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">
+          🏗️ Southern California's #1 Remodeling Company
+        </div>
+        <h1 class="hero-title fade-up delay-1">
+          Transform Your Home.<br />
+          <span class="highlight">Maximize Its Value.</span>
+        </h1>
+        <p class="hero-desc fade-up delay-2">
+          From dream kitchens and stunning bathrooms to home additions and ADUs — we handle every project with craftsmanship you can see and quality you can count on.
+        </p>
+        <div class="hero-trust fade-up delay-3">
+          <div class="trust-badge"><span class="dot">✓</span> No Hidden Fees</div>
+          <div class="trust-badge"><span class="dot">✓</span> Free Estimate</div>
+          <div class="trust-badge"><span class="dot">✓</span> 5-Year Workmanship Warranty</div>
+        </div>
+      </div>
+
+      <!-- Right: Form Card -->
+      <div id="lead-form" class="hero-form-card fade-up delay-4">
+        <div class="form-card-header">
+          <div class="free-badge">100% Free · No Obligation</div>
+          <h3>Get Your Free Remodeling Quote</h3>
+          <p>Respond within 24 hours — usually same day</p>
+        </div>
+
+        <form id="mainLeadForm" action="thank-you.html" method="GET" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="fname">Full Name *</label>
+            <input type="text" id="fname" name="fname" class="form-control" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="john@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(323) 555-0000" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Project Type *</label>
+            <select id="service" name="service" class="form-control" required>
+              <option value="" disabled selected>Select your project…</option>
+              <option value="kitchen">Kitchen Remodel</option>
+              <option value="bathroom">Bathroom Remodel</option>
+              <option value="home-addition">Home Addition</option>
+              <option value="adu">ADU / Garage Conversion</option>
+              <option value="room">Room Addition</option>
+              <option value="second-story">Second Story Addition</option>
+              <option value="whole-home">Whole Home Renovation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Estimated Budget</label>
+            <select id="budget" name="budget" class="form-control">
+              <option value="" disabled selected>Your budget range…</option>
+              <option value="under-30k">Under $30,000</option>
+              <option value="30-60k">$30,000 – $60,000</option>
+              <option value="60-100k">$60,000 – $100,000</option>
+              <option value="100-200k">$100,000 – $200,000</option>
+              <option value="200k+">$200,000+</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" name="message" class="form-control" rows="3" placeholder="Briefly describe what you're looking to remodel…" style="height: auto; resize: vertical;"></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn" id="submitBtn">
+            🚀 Get My Free Quote Now
+          </button>
+        </form>
+        <p class="form-privacy">
+          <span class="lock">🔒</span> Your info is 100% private and secure. No spam, ever.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       STATS BAR
+  ============================ -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Average Review Rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">Cost for Your Quote</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SERVICES SECTION
+  ============================ -->
+  <section class="section services" id="services">
+    <div class="container text-center">
+      <span class="badge">What We Build</span>
+      <h2 class="section-title">Full-Service Remodeling, Done Right</h2>
+      <p class="section-sub" style="margin: 0 auto;">From a single room to your entire home — our licensed team delivers premium results on time and within budget.</p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🍳</div>
+          <h3>Kitchen Remodels</h3>
+          <p>Custom cabinetry, quartz countertops, island upgrades, and full layout transformations. The kitchen of your dreams, built to last.</p>
+          <span class="service-tag">Most Popular</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛁</div>
+          <h3>Bathroom Remodels</h3>
+          <p>Walk-in showers, soaking tubs, floating vanities, and spa-like finishes. We turn outdated bathrooms into stunning retreats.</p>
+          <span class="service-tag">High ROI</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Home Additions</h3>
+          <p>Master suites, family rooms, sunrooms, and second stories. Expand your footprint without leaving the neighborhood you love.</p>
+          <span class="service-tag">Add Square Footage</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏡</div>
+          <h3>ADU & Garage Conversions</h3>
+          <p>Create rental income or house family with a permitted ADU. We handle design, permits, and construction from start to finish.</p>
+          <span class="service-tag">Permit Ready</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🪟</div>
+          <h3>Room Additions</h3>
+          <p>Guest bedrooms, home offices, playrooms, or flex spaces — thoughtfully designed to blend seamlessly with your existing home.</p>
+          <span class="service-tag">Custom Layout</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Whole Home Renovation</h3>
+          <p>Complete interior or exterior transformations. One contractor, one contract, zero hassle. We manage every trade from day one.</p>
+          <span class="service-tag">Full Management</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       HOW IT WORKS
+  ============================ -->
+  <section class="section how-it-works" id="process">
+    <div class="container text-center">
+      <span class="badge">Our Process</span>
+      <h2 class="section-title">Simple. Transparent. Stress-Free.</h2>
+      <p class="section-sub" style="margin: 0 auto;">We've streamlined the remodeling process so you always know what's happening — and when.</p>
+
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <h4>Submit Your Request</h4>
+          <p>Fill out our quick form with your project details. Takes less than 2 minutes.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <h4>Free Consultation</h4>
+          <p>A local expert calls you within 24 hours to understand your vision and goals.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <h4>Get Your Quote</h4>
+          <p>Receive a detailed, itemized estimate — no vague numbers, no surprises.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <h4>We Build Your Dream</h4>
+          <p>Our licensed team gets to work. You're updated at every milestone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       WHY CHOOSE US
+  ============================ -->
+  <section class="section why-us" id="about">
+    <div class="container">
+      <div class="why-grid">
+
+        <div class="why-visual">
+          <div class="why-img" style="background: linear-gradient(145deg, #0f2a52 0%, #1e5bc6 100%); font-size: 80px; color: rgba(255,255,255,.15);">
+            <div style="text-align: center; color: rgba(255,255,255,.9);">
+              <div style="font-size: 64px; margin-bottom: 12px;">🏆</div>
+              <div style="font-family: 'Manrope'; font-size: 26px; font-weight: 800; color: white;">SoCal's Most<br>Trusted Remodeler</div>
+              <div style="font-size: 15px; color: rgba(255,255,255,.7); margin-top: 10px;">Licensed · Bonded · Insured</div>
+            </div>
+          </div>
+          <div class="why-badge-float">
+            <div class="num">500+</div>
+            <div class="lbl">Happy Homeowners</div>
+          </div>
+        </div>
+
+        <div class="why-content">
+          <span class="badge">Why SoCal Remodel Quotes</span>
+          <h2 class="section-title">We're Not Just Contractors.<br />We're Your Partners.</h2>
+          <p>We built SoCal Remodel Quotes on one simple principle: do the job right, treat people with respect, and let the work speak for itself. Every project is managed by a dedicated project lead who keeps you informed every step of the way.</p>
+          <ul class="why-list">
+            <li>
+              <div class="why-check">✓</div>
+              <div class="why-list-text">
+                <h4>California Licensed & Insured (CSLB)</h4>
+                <p>Full licensing, bonding, and insurance so you're protected at every stage.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-check">✓</div>
+              <div class="why-list-text">
+                <h4>Permit-Ready On Every Project</h4>
+                <p>We pull all permits, handle inspections, and ensure full code compliance.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-check">✓</div>
+              <div class="why-list-text">
+                <h4>5-Year Workmanship Warranty</h4>
+                <p>We stand behind our work long after the final walk-through.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-check">✓</div>
+              <div class="why-list-text">
+                <h4>Transparent, Fixed-Price Quotes</h4>
+                <p>No bait-and-switch. No surprise invoices. What we quote is what you pay.</p>
+              </div>
+            </li>
+          </ul>
+          <a href="#lead-form" class="btn btn-primary btn-lg">Get My Free Quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       TESTIMONIALS
+  ============================ -->
+  <section class="section testimonials" id="reviews">
+    <div class="container text-center">
+      <span class="badge green">Client Reviews</span>
+      <h2 class="section-title">Real Homeowners. Real Results.</h2>
+      <p class="section-sub" style="margin: 0 auto;">Don't take our word for it — here's what Southern California homeowners are saying.</p>
+
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"We couldn't be happier with our kitchen remodel. The team was professional, clean, and finished on time. The craftsmanship is incredible — everyone who visits comments on it."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">Maria L.</div>
+              <div class="testi-location">Los Angeles, CA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"We added a 500 sq ft master suite and the process was seamless. Our project manager kept us in the loop daily. Best money we've ever spent on our home."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">D</div>
+            <div>
+              <div class="testi-name">David & Karen T.</div>
+              <div class="testi-location">Orange County, CA</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Our garage ADU is now renting for $2,200/month. The ROI has been amazing. The permit process was stress-free because they handled everything."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">J</div>
+            <div>
+              <div class="testi-name">Jason R.</div>
+              <div class="testi-location">San Diego, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       LEAD MAGNET OFFER
+  ============================ -->
+  <section class="section offer-section" id="offer">
+    <div class="container">
+      <div class="offer-inner">
+        <div>
+          <span class="badge">Limited Offer</span>
+          <h2 class="section-title" style="margin-top: 14px;">Get a Free Design Consultation<br />+ Itemized Estimate</h2>
+          <p style="font-size: 16px; margin-bottom: 4px;">When you request a quote today, you get:</p>
+          <ul class="offer-list">
+            <li><span class="ico">📐</span> Free in-home or virtual design consultation</li>
+            <li><span class="ico">📋</span> Detailed, itemized project estimate</li>
+            <li><span class="ico">📸</span> Concept renderings for larger projects</li>
+            <li><span class="ico">🗓️</span> Project timeline with milestone schedule</li>
+            <li><span class="ico">💰</span> Financing options (0% APR available)</li>
+          </ul>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
+            <div style="background: rgba(34,197,94,.1); border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 22px;">🛡️</span>
+              <div>
+                <div style="font-weight: 700; color: var(--navy); font-size: 14px;">No Pressure, Ever</div>
+                <div style="font-size: 13px; color: var(--muted);">Zero obligation to proceed</div>
+              </div>
+            </div>
+            <div style="background: rgba(30,91,198,.08); border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 22px;">⚡</span>
+              <div>
+                <div style="font-weight: 700; color: var(--navy); font-size: 14px;">Same-Day Response</div>
+                <div style="font-size: 13px; color: var(--muted);">We call you within hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-form-box">
+          <h3>Start Your Free Quote</h3>
+          <p>Tell us about your project and we'll match you with the right specialist.</p>
+          <form id="offerForm" action="thank-you.html" method="GET" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="o_name">Full Name *</label>
+              <input type="text" id="o_name" name="fname" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="o_phone">Phone *</label>
+              <input type="tel" id="o_phone" name="phone" class="form-control" placeholder="(323) 555-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="o_email">Email *</label>
+              <input type="email" id="o_email" name="email" class="form-control" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="o_service">Project Type *</label>
+              <select id="o_service" name="service" class="form-control" required>
+                <option value="" disabled selected>Select project…</option>
+                <option>Kitchen Remodel</option>
+                <option>Bathroom Remodel</option>
+                <option>Home Addition</option>
+                <option>ADU / Garage Conversion</option>
+                <option>Room Addition</option>
+                <option>Whole Home Renovation</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit-btn">
+              ✅ Claim My Free Consultation
+            </button>
+          </form>
+          <p class="form-privacy" style="margin-top: 12px;">
+            <span class="lock">🔒</span> We never share your info. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FAQ
+  ============================ -->
+  <section class="section faq" id="faq">
+    <div class="container text-center">
+      <span class="badge">Common Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub" style="margin: 0 auto;">We believe in total transparency. Here are the questions we hear most often.</p>
+
+      <div class="faq-grid">
+
+        <div class="faq-item" id="faq-1">
+          <button class="faq-question" onclick="toggleFaq('faq-1')">
+            How much does a kitchen remodel cost in SoCal?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Most kitchen remodels in Southern California range from $30,000–$80,000+ depending on size, materials, and layout changes. We provide detailed, itemized quotes so you know exactly what you're paying for — with no surprises.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-2">
+          <button class="faq-question" onclick="toggleFaq('faq-2')">
+            How long does a home addition take?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">A typical room addition takes 8–16 weeks from permit approval to completion. Larger additions or ADUs may take 4–6 months. We provide a detailed milestone schedule before we break ground.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-3">
+          <button class="faq-question" onclick="toggleFaq('faq-3')">
+            Do you handle permits?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes — we handle all permits, inspections, and code compliance. Our team has deep experience navigating Southern California's permitting process including ADU permits which can be especially complex.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-4">
+          <button class="faq-question" onclick="toggleFaq('faq-4')">
+            Can I finance my remodel?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely. We offer flexible financing options including 0% APR promotional periods through our lending partners. Ask about financing options when you receive your free quote.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-5">
+          <button class="faq-question" onclick="toggleFaq('faq-5')">
+            Is the quote really free?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">100% free. No consultation fee, no obligation, no pressure. We earn your business by delivering great estimates and even better results.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-6">
+          <button class="faq-question" onclick="toggleFaq('faq-6')">
+            Are you licensed and insured in California?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. We are fully licensed with the California State License Board (CSLB), bonded, and carry comprehensive general liability and workers' compensation insurance on every project.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FINAL CTA
+  ============================ -->
+  <section class="final-cta" id="contact">
+    <div class="container">
+      <h2>Ready to Transform Your Home?</h2>
+      <p>Join hundreds of Southern California homeowners who've already made the call. Get your free quote today — it takes under 2 minutes.</p>
+      <div class="cta-form-inline">
+        <input type="tel" id="cta-phone" placeholder="Enter your phone number" />
+        <button class="btn btn-primary btn-lg" onclick="quickSubmit()">
+          Call Me Now →
+        </button>
+      </div>
+      <div class="cta-badges">
+        <div class="cta-badge-item">✓ Free Estimate</div>
+        <div class="cta-badge-item">✓ Same-Day Response</div>
+        <div class="cta-badge-item">✓ No Obligation</div>
+        <div class="cta-badge-item">✓ Licensed & Insured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 SoCal Remodel Quotes. All rights reserved. | CSLB License #000000</div>
+        <div class="footer-links">
+          <a href="#" onclick="return false;">Privacy Policy</a>
+          <a href="#" onclick="return false;">Terms of Service</a>
+          <a href="tel:+18005550000">(800) 555-0000</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="tel:+18005550000" class="msb-call">
+      📞 Call Now
+    </a>
+    <a href="#lead-form" class="msb-quote">
+      ✍️ Free Quote
+    </a>
+  </div>
+
+  <!-- ============================
+       JAVASCRIPT
+  ============================ -->
+  <script>
+    // ── FAQ TOGGLE ──────────────────────────
+    function toggleFaq(id) {
+      const item = document.getElementById(id);
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    // ── FORM SUBMIT HANDLER ──────────────────
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const origText = btn.innerHTML;
+
+      btn.innerHTML = '⏳ Sending…';
+      btn.disabled = true;
+
+      // Collect lead data
+      const data = {
+        timestamp: new Date().toISOString(),
+        source: 'landing-page',
+        referrer: document.referrer || 'direct',
+        page: window.location.href,
+        fname: form.fname ? form.fname.value : '',
+        email: form.email ? form.email.value : '',
+        phone: form.phone ? form.phone.value : '',
+        service: form.service ? form.service.value : '',
+        budget: form.budget ? form.budget.value : '',
+        message: form.message ? form.message.value : '',
+      };
+
+      // Persist lead locally (for tracking / handoff)
+      const leads = JSON.parse(localStorage.getItem('scr_leads') || '[]');
+      leads.push(data);
+      localStorage.setItem('scr_leads', JSON.stringify(leads));
+
+      // Build thank-you URL with UTM-like params for tracking
+      const params = new URLSearchParams({
+        name: data.fname,
+        service: data.service,
+        ts: Date.now()
+      });
+
+      setTimeout(() => {
+        window.location.href = 'thank-you.html?' + params.toString();
+      }, 700);
+    }
+
+    // ── QUICK CTA FORM ───────────────────────
+    function quickSubmit() {
+      const phone = document.getElementById('cta-phone').value.trim();
+      if (!phone) { document.getElementById('cta-phone').focus(); return; }
+      const params = new URLSearchParams({ phone, service: 'call-back', ts: Date.now() });
+      window.location.href = 'thank-you.html?' + params.toString();
+    }
+
+    // ── SCROLL ANIMATIONS ────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .step-item, .testi-card, .faq-item, .stat-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+
+    // ── SMOOTH SCROLL ────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── PHONE FORMAT ─────────────────────────
+    document.querySelectorAll('input[type="tel"]').forEach(input => {
+      input.addEventListener('input', function() {
+        let v = this.value.replace(/\D/g,'');
+        if (v.length <= 3) v = v;
+        else if (v.length <= 6) v = '(' + v.slice(0,3) + ') ' + v.slice(3);
+        else v = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+        this.value = v;
+      });
+    });
+  </script>
+
+</body>
+</html>
