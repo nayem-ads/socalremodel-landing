@@ -84,6 +84,49 @@
       display: flex; align-items: center;
       max-width: 1120px; margin: 0 auto;
     }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon-wrapper {
+      width: 44px;
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .logo-icon-wrapper img {
+      width: 44px;
+      height: auto;
+      margin-top: -2px;
+      display: block;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .logo-title-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 900;
+      color: #ffffff !important;
+      letter-spacing: -0.02em;
+    }
+    .logo-title-text span.accent {
+      color: var(--accent) !important;
+    }
+    .logo-sub-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6) !important;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
     /* ── MAIN CARD ── */
     .ty-main {
@@ -252,6 +295,24 @@
       .ty-success-bar h1 { font-size: 24px; }
       .ty-cta-group { flex-direction: column; }
       .ty-btn { min-width: unset; }
+      .logo {
+        gap: 8px;
+      }
+      .logo-icon-wrapper {
+        width: 36px;
+        height: 30px;
+      }
+      .logo-icon-wrapper img {
+        width: 36px;
+        margin-top: -1px;
+      }
+      .logo-title-text {
+        font-size: 15px;
+      }
+      .logo-sub-text {
+        font-size: 8px;
+        letter-spacing: 0.08em;
+      }
     }
   </style>
 </head>
@@ -260,7 +321,15 @@
   <!-- HEADER -->
   <header class="ty-header">
     <div class="ty-logo">
-      <img src="logo.png" alt="SoCal Remodel Quotes" style="height: 36px; width: auto;" />
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrapper">
+          <img src="logo.png" alt="SoCal Remodel Quotes Logo" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-title-text">SoCal<span class="accent">Remodel</span></span>
+          <span class="logo-sub-text">Quotes</span>
+        </div>
+      </a>
     </div>
   </header>
 
