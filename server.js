@@ -137,6 +137,11 @@ app.post('/api/leads', async (req, res) => {
   }
 });
 
+// ── HEALTH CHECK ──────────────────────────────────────────────────────────────
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', ts: new Date().toISOString() });
+});
+
 // ── FALLBACK → index.html ─────────────────────────────────────────────────────
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
