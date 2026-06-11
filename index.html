@@ -1502,43 +1502,51 @@
     }
 
     // ── FORM SUBMIT HANDLER ──────────────────
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const btn = form.querySelector('button[type="submit"]');
-      
+
       btn.innerHTML = '⏳ Sending…';
       btn.disabled = true;
 
       // Collect lead data
-      const data = {
-        timestamp: new Date().toISOString(),
-        source: 'landing-page',
-        referrer: document.referrer || 'direct',
-        page: window.location.href,
-        fname: form.fname ? form.fname.value : '',
-        email: form.email ? form.email.value : '',
-        phone: form.phone ? form.phone.value : '',
-        service: form.service ? form.service.value : '',
-        budget: form.budget ? form.budget.value : '',
-        message: form.message ? form.message.value : '',
-      };
+      const fname       = form.fname   ? form.fname.value.trim()   : '';
+      const email       = form.email   ? form.email.value.trim()   : '';
+      const phone       = form.phone   ? form.phone.value.trim()   : '';
+      const service     = form.service ? form.service.value.trim() : '';
 
-      // Persist lead locally (for tracking / handoff)
-      const leads = JSON.parse(localStorage.getItem('scr_leads') || '[]');
-      leads.push(data);
-      localStorage.setItem('scr_leads', JSON.stringify(leads));
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name:         fname,
+            email:        email,
+            phone:        phone,
+            project_type: service,
+          }),
+        });
 
-      // Build thank-you URL with UTM-like params for tracking
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({}));
+          throw new Error(err.error || 'Submission failed. Please try again.');
+        }
+      } catch (err) {
+        console.error('[form] Lead submission error:', err.message);
+        btn.innerHTML = '🚀 Get My Free Quote Now';
+        btn.disabled = false;
+        alert(err.message || 'Something went wrong. Please try again or call us directly.');
+        return;
+      }
+
+      // Redirect to thank-you page with name & service for personalisation
       const params = new URLSearchParams({
-        name: data.fname,
-        service: data.service,
-        ts: Date.now()
+        name:    fname,
+        service: service,
+        ts:      Date.now(),
       });
-
-      setTimeout(() => {
-        window.location.href = 'thank-you.html?' + params.toString();
-      }, 700);
+      window.location.href = 'thank-you.html?' + params.toString();
     }
 
     // ── QUICK CTA FORM ───────────────────────
