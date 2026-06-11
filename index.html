@@ -1515,6 +1515,8 @@
       const email    = form.email    ? form.email.value.trim()    : '';
       const phone    = form.phone    ? form.phone.value.trim()    : '';
       const service  = form.service  ? form.service.value.trim()  : '';
+      const budget   = form.budget   ? form.budget.value.trim()   : '';
+      const message  = form.message  ? form.message.value.trim()  : '';
 
       try {
         const response = await fetch('/api/leads', {
@@ -1525,6 +1527,8 @@
             email: email,
             phone: phone,
             project_type: service,
+            budget: budget,
+            message: message,
           }),
         });
 

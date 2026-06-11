@@ -21,13 +21,22 @@ pool.query(`
     email VARCHAR(255) NOT NULL,
     phone VARCHAR(50),
     project_type VARCHAR(100),
+    budget VARCHAR(100),
+    message TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
 `).then(() => {
-  console.log('Database initialized: "leads" table is ready.');
+  console.log('Database initialized: "leads" table schema checked.');
+  // Safe migrations for existing table
+  return pool.query(`
+    ALTER TABLE leads ADD COLUMN IF NOT EXISTS budget VARCHAR(100);
+    ALTER TABLE leads ADD COLUMN IF NOT EXISTS message TEXT;
+  `);
+}).then(() => {
+  console.log('Database schema migrations verified.');
 }).catch((err) => {
-  console.error('Failed to initialize database table:', err.message);
+  console.error('Failed to initialize database table/migrations:', err.message);
 });
 
 
@@ -36,7 +45,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 // ── EMAIL NOTIFICATION (RESEND) ────────────────────────────────────────────────
-async function sendLeadEmail(name, email, phone, projectType) {
+async function sendLeadEmail(name, email, phone, projectType, budget, message) {
   const apiKey = process.env.RESEND_API_KEY || 're_gLMUzdFN_C4GTQzyfwaeSvcxYvWQZStvW';
   const recipient = process.env.LEAD_NOTIFICATION_EMAIL || 'nayem.adsmanager2@gmail.com';
 
@@ -80,6 +89,14 @@ async function sendLeadEmail(name, email, phone, projectType) {
                   <td style="padding: 10px 0; font-weight: bold; color: #475569;">Project Type:</td>
                   <td style="padding: 10px 0; color: #0f172a; text-transform: capitalize;">${projectType}</td>
                 </tr>
+                <tr style="border-bottom: 1px solid #f1f5f9;">
+                  <td style="padding: 10px 0; font-weight: bold; color: #475569;">Estimated Budget:</td>
+                  <td style="padding: 10px 0; color: #0f172a;">${budget || '—'}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f1f5f9;">
+                  <td style="padding: 10px 0; font-weight: bold; color: #475569;">Project Details:</td>
+                  <td style="padding: 10px 0; color: #0f172a; white-space: pre-line;">${message || '—'}</td>
+                </tr>
                 <tr>
                   <td style="padding: 10px 0; font-weight: bold; color: #475569;">Submitted At:</td>
                   <td style="padding: 10px 0; color: #0f172a;">${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })} PST</td>
@@ -104,7 +121,7 @@ async function sendLeadEmail(name, email, phone, projectType) {
 
 // ── POST /api/leads ───────────────────────────────────────────────────────────
 app.post('/api/leads', async (req, res) => {
-  const { name, email, phone, project_type } = req.body;
+  const { name, email, phone, project_type, budget, message } = req.body;
 
   // Validate required fields
   if (!name || !email || !phone || !project_type) {
@@ -121,14 +138,28 @@ app.post('/api/leads', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO leads (name, email, phone, project_type, created_at, updated_at)
-       VALUES ($1, $2, $3, $4, NOW(), NOW())
+      `INSERT INTO leads (name, email, phone, project_type, budget, message, created_at, updated_at)
+       VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW())
        RETURNING id`,
-      [name.trim(), email.trim().toLowerCase(), phone.trim(), project_type.trim()]
+      [
+        name.trim(),
+        email.trim().toLowerCase(),
+        phone.trim(),
+        project_type.trim(),
+        budget ? budget.trim() : null,
+        message ? message.trim() : null
+      ]
     );
 
     // Trigger email notification asynchronously
-    sendLeadEmail(name.trim(), email.trim(), phone.trim(), project_type.trim());
+    sendLeadEmail(
+      name.trim(),
+      email.trim(),
+      phone.trim(),
+      project_type.trim(),
+      budget ? budget.trim() : null,
+      message ? message.trim() : null
+    );
 
     return res.status(201).json({ success: true, id: result.rows[0].id });
   } catch (err) {
