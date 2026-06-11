@@ -13,6 +13,24 @@ const pool = new Pool({
     : false,
 });
 
+// Create table on startup if it doesn't exist
+pool.query(`
+  CREATE TABLE IF NOT EXISTS leads (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50),
+    project_type VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
+`).then(() => {
+  console.log('Database initialized: "leads" table is ready.');
+}).catch((err) => {
+  console.error('Failed to initialize database table:', err.message);
+});
+
+
 // ── MIDDLEWARE ────────────────────────────────────────────────────────────────
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
