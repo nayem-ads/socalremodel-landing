@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname)));
 // ── EMAIL NOTIFICATION (RESEND) ────────────────────────────────────────────────
 async function sendLeadEmail(name, email, phone, projectType) {
   const apiKey = process.env.RESEND_API_KEY || 're_gLMUzdFN_C4GTQzyfwaeSvcxYvWQZStvW';
-  const recipient = process.env.LEAD_NOTIFICATION_EMAIL || 'nayem.adsmanager@gmail.com';
+  const recipient = process.env.LEAD_NOTIFICATION_EMAIL || 'nayem.adsmanager2@gmail.com';
 
   if (!apiKey) {
     console.log('[Resend] API key not found. Skipping email notification.');
