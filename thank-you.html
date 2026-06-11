@@ -477,16 +477,18 @@
     }
 
     // ── LEAD TRACKING DISPLAY ────────────────────
-    // Get last lead from localStorage
-    const leads = JSON.parse(localStorage.getItem('scr_leads') || '[]');
-    const lastLead = leads[leads.length - 1] || {};
-
     // Build tracking data for admin/debug — show only if ?admin=1
     if (params.get('admin') === '1') {
       const panel = document.getElementById('lead-tracking-panel');
       const rows  = document.getElementById('tracking-data-rows');
       panel.style.display = 'block';
-      const trackData = { ...lastLead, url_params: Object.fromEntries(params) };
+      const trackData = {
+        name:    leadName,
+        service: leadService,
+        phone:   leadPhone,
+        ts:      leadTs,
+        url_params: Object.fromEntries(params),
+      };
       Object.entries(trackData).forEach(([k, v]) => {
         const row = document.createElement('div');
         row.className = 'tracking-row';
@@ -506,8 +508,7 @@
       lead_id:      leadTs,
       name:         leadName,
       service:      leadService,
-      phone:        leadPhone || lastLead.phone,
-      email:        lastLead.email,
+      phone:        leadPhone,
       referrer:     document.referrer || 'direct',
       utm_source:   params.get('utm_source') || getCookie('utm_source') || '',
       utm_medium:   params.get('utm_medium') || getCookie('utm_medium') || '',
@@ -517,9 +518,8 @@
       user_agent:   navigator.userAgent,
     };
 
-    // Save tracking payload — replace with CRM/webhook call
+    // Log tracking payload for analytics/CRM integration
     console.log('[SoCal Lead Tracker] New lead:', trackingPayload);
-    localStorage.setItem('scr_last_conversion', JSON.stringify(trackingPayload));
 
     /*
     ─────────────────────────────────────────
