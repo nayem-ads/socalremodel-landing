@@ -795,6 +795,51 @@
     .delay-4 { animation-delay: .35s; }
 
     /* ============================
+       HERO TRUST PILLS
+    ============================ */
+    .hero-trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(249, 115, 22, 0.45);
+      border-radius: 100px;
+      padding: 8px 16px 8px 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .trust-pill:hover {
+      background: rgba(249, 115, 22, 0.12);
+      border-color: rgba(249, 115, 22, 0.7);
+    }
+    .tp-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #059669);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(16,185,129,0.35);
+    }
+
+    /* ============================
        RESPONSIVE
     ============================ */
     @media (max-width: 1024px) {
@@ -807,11 +852,11 @@
     @media (max-width: 680px) {
       .section { padding: 64px 0; }
       .hero { min-height: auto; }
-      .hero-inner { padding: 40px 16px; gap: 32px; }
+      .hero-inner { padding: 36px 16px 28px; gap: 24px; }
       .hero-eyebrow { display: none; }
-      .hero-title { font-size: 26px; line-height: 1.25; margin-bottom: 8px; text-align: center; }
-      .hero-desc { display: none; }
-      .hero-trust { display: none; }
+      .hero-title { font-size: 27px; line-height: 1.2; margin-bottom: 12px; text-align: left; }
+      .hero-desc { display: block !important; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.82); margin-bottom: 0; }
+      .hero-trust-pills { gap: 8px; margin-top: 18px; }
       .hero-form-card { padding: 24px 20px; border-radius: var(--radius-md); width: 100%; max-width: 100%; }
       .form-card-header { margin: -24px -20px 16px; padding: 16px 20px; }
       .form-card-header h3 { font-size: 17px; }
@@ -935,14 +980,16 @@
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">SoCal's Kitchen & ADU Specialists</div>
         <h1 class="hero-title fade-up delay-1">
-          Your Kitchen. Your ADU.<br />
-          <span class="highlight">Built Right the First Time.</span>
+          The Price We Quote Is<br />
+          <span class="highlight">the Price You Pay.</span>
         </h1>
-        <p class="hero-desc fade-up delay-2" style="display: block !important;">
-          Southern California homeowners choose us for one reason: we show up, we finish on time, and the price we quote is the price you pay. Get your free itemized estimate in 24 hours.
+        <p class="hero-desc fade-up delay-2">
+          No change orders. No last-minute surprises. SoCal's most trusted remodeling crew has completed 500+ projects and earned every one of its 4.9 stars by doing exactly what we say.
         </p>
-        <div class="hero-trust fade-up delay-3" style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.4; display: block !important; margin-top: 28px;">
-          ✓ Fixed Price Guaranteed &nbsp;·&nbsp; ✓ Free In-Home Design Visit &nbsp;·&nbsp; ✓ 5-Year Workmanship Warranty
+        <div class="hero-trust-pills fade-up delay-3">
+          <div class="trust-pill"><span class="tp-check">✓</span>Fixed Price</div>
+          <div class="trust-pill"><span class="tp-check">✓</span>Free Design Visit</div>
+          <div class="trust-pill"><span class="tp-check">✓</span>5-Year Warranty</div>
         </div>
       </div>
 
