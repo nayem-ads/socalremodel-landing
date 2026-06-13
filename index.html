@@ -935,6 +935,206 @@
       border-color: var(--accent); background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
     }
     .bottom-form-card textarea { resize: vertical; min-height: 100px; }
+
+    /* ============================
+       FINAL CTA / TWO-STEP FORM
+    ============================ */
+    .final-cta {
+      background: linear-gradient(160deg, #0b1329 0%, #111d3a 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(249,115,22,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Section header */
+    .cta-header { max-width: 640px; margin: 0 auto 32px; }
+    .final-cta h2 {
+      color: #fff;
+      font-size: clamp(24px, 4vw, 36px);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .cta-subhead {
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    /* Trust grid */
+    .cta-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 560px;
+      margin: 0 auto 36px;
+      text-align: left;
+    }
+    .cta-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      font-family: 'Outfit', sans-serif;
+    }
+    .cta-check { font-size: 16px; flex-shrink: 0; }
+    /* Form card */
+    .bottom-form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+      box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    }
+    .cta-form-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #f97316;
+      margin-bottom: 18px;
+    }
+    .bottom-form-card .form-group { margin-bottom: 16px; }
+    .bottom-form-card label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .bottom-form-card input,
+    .bottom-form-card select {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #e2e8f0;
+      background: #f8fafc;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .bottom-form-card input:focus,
+    .bottom-form-card select:focus {
+      border-color: #f97316;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(249,115,22,.15);
+    }
+    .cta-fine-print {
+      font-size: 12px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    /* Step 2 styles */
+    .step2-header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .step2-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .step2-header h3 {
+      font-size: 20px;
+      color: #0b1329;
+      margin-bottom: 6px;
+    }
+    .step2-header p {
+      font-size: 13.5px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .step2-progress {
+      height: 6px;
+      background: #e8edf4;
+      border-radius: 99px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .step2-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f97316, #ea580c);
+      border-radius: 99px;
+      transition: width .35s ease;
+    }
+    .q-block {
+      margin-bottom: 22px;
+      transition: outline .2s;
+    }
+    .q-label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1329;
+      margin-bottom: 10px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .q-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .q-opt {
+      min-height: 46px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      background: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0b1329;
+      cursor: pointer;
+      transition: all .15s;
+      padding: 8px 12px;
+      line-height: 1.3;
+    }
+    .q-opt:hover { border-color: #f97316; background: #fff7ed; }
+    .q-opt.q-selected {
+      border-color: #f97316;
+      background: #fff7ed;
+      color: #c2410c;
+      box-shadow: 0 0 0 3px rgba(249,115,22,.15);
+    }
+    .q-opt-wide { grid-column: 1 / -1; }
+
+    /* Mobile overrides */
+    @media (max-width: 680px) {
+      .final-cta { padding: 56px 0 72px; }
+      .cta-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .cta-trust-item { font-size: 13px; padding: 10px 12px; }
+      .bottom-form-card { padding: 24px 18px; border-radius: 16px; }
+      .q-options { grid-template-columns: 1fr; }
+      .q-opt-wide { grid-column: auto; }
+      .q-opt { min-height: 50px; font-size: 15px; }
+    }
   </style>
 </head>
 <body>
@@ -1209,29 +1409,136 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- FINAL CTA / TWO-STEP FORM -->
   <section class="final-cta" id="contact">
     <div class="container">
-      <h2>Start Your Remodel Today</h2>
-      <p>A local consultant will respond to your request within 24 hours.</p>
-      <div class="bottom-form-card">
-        <h3>Request Your Estimate</h3>
-        <form onsubmit="handleBottomFormSubmit(event)">
-          <div class="form-group"><label>Name *</label><input type="text" name="fname" required /></div>
-          <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required /></div>
-          <div class="form-group"><label>Email *</label><input type="email" name="email" required /></div>
-          <div class="form-group"><label>Project Type *</label>
-            <select name="service" required>
-              <option value="Kitchen">Kitchen Remodel</option>
-              <option value="ADU">ADU / Garage</option>
-              <option value="Addition">Home Addition</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Send My Request</button>
-        </form>
+
+      <!-- Section Header -->
+      <div class="cta-header">
+        <span class="badge" style="background:rgba(249,115,22,0.15);color:#f97316;margin-bottom:16px;">Free Cost Review</span>
+        <h2>Get a Real Remodel Estimate From a Licensed SoCal Team</h2>
+        <p class="cta-subhead">Planning a kitchen remodel, ADU, garage conversion, home addition, or full renovation? Get a realistic cost range, timeline guidance, and next-step recommendation before you commit.</p>
       </div>
-      <div class="cta-badges">
-  ============================ -->
+
+      <!-- Trust Grid -->
+      <div class="cta-trust-grid">
+        <div class="cta-trust-item"><span class="cta-check">✅</span>CA Licensed, Bonded &amp; Insured</div>
+        <div class="cta-trust-item"><span class="cta-check">✅</span>500+ Projects Completed</div>
+        <div class="cta-trust-item"><span class="cta-check">✅</span>Serving LA, Orange County &amp; San Diego</div>
+        <div class="cta-trust-item"><span class="cta-check">✅</span>5-Year Workmanship Warranty</div>
+      </div>
+
+      <!-- Two-Step Form Card -->
+      <div class="bottom-form-card" id="twoStepFormCard">
+
+        <!-- STEP 1: Contact Info -->
+        <div id="ctaStep1">
+          <div class="cta-form-label">Request Your Free Remodel Cost Review</div>
+          <form id="ctaForm1" onsubmit="handleCtaStep1(event)">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="fname" placeholder="Your full name" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
+            </div>
+            <div class="form-group">
+              <label>City / ZIP *</label>
+              <input type="text" name="city" placeholder="Los Angeles, 90210" required />
+            </div>
+            <div class="form-group">
+              <label>Project Type *</label>
+              <select name="service" required>
+                <option value="" disabled selected>Select your project</option>
+                <option value="Kitchen Remodel">Kitchen Remodel</option>
+                <option value="ADU / Garage Conversion">ADU / Garage Conversion</option>
+                <option value="Home Addition">Home Addition</option>
+                <option value="Whole Home Renovation">Whole Home Renovation</option>
+                <option value="Other">Something Else</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="ctaStep1Btn">
+              Get My Free Estimate
+            </button>
+            <p class="cta-fine-print">No pressure. No obligation. A project specialist will contact you within 24 hours.</p>
+          </form>
+        </div>
+
+        <!-- STEP 2: Qualification Questions (hidden until Step 1 submitted) -->
+        <div id="ctaStep2" style="display:none;">
+          <div class="step2-header">
+            <div class="step2-icon">📋</div>
+            <h3>One More Step</h3>
+            <p>These 5 quick questions help us send you the most accurate cost range and connect you with the right specialist.</p>
+          </div>
+          <div class="step2-progress"><div class="step2-bar"></div></div>
+          <form id="ctaForm2" onsubmit="handleCtaStep2(event)">
+
+            <div class="q-block" data-q="1">
+              <label class="q-label">1 of 5 &mdash; What is your estimated budget?</label>
+              <div class="q-options">
+                <button type="button" class="q-opt" data-field="budget" data-value="Under $50,000">Under $50K</button>
+                <button type="button" class="q-opt" data-field="budget" data-value="$50,000 to $100,000">$50K to $100K</button>
+                <button type="button" class="q-opt" data-field="budget" data-value="$100,000 to $200,000">$100K to $200K</button>
+                <button type="button" class="q-opt" data-field="budget" data-value="$200,000 or more">$200K or more</button>
+                <button type="button" class="q-opt q-opt-wide" data-field="budget" data-value="Not sure yet">Not sure yet</button>
+              </div>
+              <input type="hidden" name="budget" required />
+            </div>
+
+            <div class="q-block" data-q="2">
+              <label class="q-label">2 of 5 &mdash; When are you hoping to start?</label>
+              <div class="q-options">
+                <button type="button" class="q-opt" data-field="timeline" data-value="As soon as possible">ASAP</button>
+                <button type="button" class="q-opt" data-field="timeline" data-value="Within 1 to 3 months">1 to 3 months</button>
+                <button type="button" class="q-opt" data-field="timeline" data-value="Within 3 to 6 months">3 to 6 months</button>
+                <button type="button" class="q-opt q-opt-wide" data-field="timeline" data-value="6 months or more">6 months or more</button>
+              </div>
+              <input type="hidden" name="timeline" required />
+            </div>
+
+            <div class="q-block" data-q="3">
+              <label class="q-label">3 of 5 &mdash; Do you currently own this property?</label>
+              <div class="q-options">
+                <button type="button" class="q-opt" data-field="ownership" data-value="Yes, I own it">Yes, I own it</button>
+                <button type="button" class="q-opt" data-field="ownership" data-value="It is a rental property">It's a rental</button>
+                <button type="button" class="q-opt q-opt-wide" data-field="ownership" data-value="In escrow or buying soon">In escrow / buying soon</button>
+              </div>
+              <input type="hidden" name="ownership" required />
+            </div>
+
+            <div class="q-block" data-q="4">
+              <label class="q-label">4 of 5 &mdash; Have you already gotten other contractor quotes?</label>
+              <div class="q-options">
+                <button type="button" class="q-opt" data-field="quotes" data-value="Yes, I have other quotes">Yes, I have quotes</button>
+                <button type="button" class="q-opt" data-field="quotes" data-value="No, this is my first inquiry">No, first inquiry</button>
+                <button type="button" class="q-opt q-opt-wide" data-field="quotes" data-value="Still researching options">Still researching</button>
+              </div>
+              <input type="hidden" name="quotes" required />
+            </div>
+
+            <div class="q-block" data-q="5">
+              <label class="q-label">5 of 5 &mdash; What matters most for this project?</label>
+              <div class="q-options">
+                <button type="button" class="q-opt" data-field="priority" data-value="Staying on budget">Staying on budget</button>
+                <button type="button" class="q-opt" data-field="priority" data-value="Fastest possible completion">Fastest completion</button>
+                <button type="button" class="q-opt" data-field="priority" data-value="Highest quality finish">Highest quality</button>
+                <button type="button" class="q-opt q-opt-wide" data-field="priority" data-value="All three equally">All three equally</button>
+              </div>
+              <input type="hidden" name="priority" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="ctaStep2Btn" style="margin-top:24px;">
+              Complete My Request
+            </button>
+            <p class="cta-fine-print">Your answers help us send you the right specialist, not a generic sales call.</p>
+          </form>
+        </div>
+
+      </div><!-- /.bottom-form-card -->
+    </div><!-- /.container -->
+  </section>
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
@@ -1309,14 +1616,132 @@
       if (!wasOpen) item.classList.add('open');
     }
 
-    // ── BOTTOM CONTACT FORM SUBMISSION ───────────────────────
-    async function handleBottomFormSubmit(e) {
+    // ── TWO-STEP BOTTOM FORM ─────────────────────────────────────
+    // Stores step 1 data to merge with step 2 before final submission
+    let _ctaStep1Data = {};
+    let _savedLeadId  = null;
+
+    // Phone formatter for bottom form inputs
+    document.querySelectorAll('#ctaForm1 input[type="tel"]').forEach(inp => {
+      inp.addEventListener('input', function() {
+        let v = this.value.replace(/\D/g,'');
+        if (v.length <= 3) this.value = v;
+        else if (v.length <= 6) this.value = '(' + v.slice(0,3) + ') ' + v.slice(3);
+        else this.value = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+      });
+    });
+
+    // Qualification option click handler
+    document.querySelectorAll('.q-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const field = btn.dataset.field;
+        // deselect siblings
+        btn.closest('.q-options').querySelectorAll('.q-opt').forEach(b => b.classList.remove('q-selected'));
+        btn.classList.add('q-selected');
+        // write hidden input
+        document.querySelector(`#ctaForm2 input[name="${field}"]`).value = btn.dataset.value;
+        // update progress bar
+        const answered = document.querySelectorAll('#ctaForm2 input[type=hidden][required]');
+        const filled   = [...answered].filter(i => i.value).length;
+        document.querySelector('.step2-bar').style.width = (filled / answered.length * 100) + '%';
+      });
+    });
+
+    async function handleCtaStep1(e) {
       e.preventDefault();
-      const f = e.target;
-      const btn = f.querySelector('button[type="submit"]');
-      const origText = btn.innerHTML;
-      btn.innerHTML = '⏳ Sending…';
-      btn.disabled = true;
+      const f   = e.target;
+      const btn = document.getElementById('ctaStep1Btn');
+      btn.textContent = 'Saving…'; btn.disabled = true;
+
+      _ctaStep1Data = {
+        name:         f.fname.value.trim(),
+        phone:        f.phone.value.trim(),
+        city:         f.city.value.trim(),
+        project_type: f.service.value,
+        email:        'pending@socalremodelquotes.com',
+        budget:       'Pending qualification',
+        message:      `City/ZIP: ${f.city.value.trim()} | Step 1 captured`
+      };
+
+      // Immediately save to DB so the lead is never lost
+      try {
+        const r = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(_ctaStep1Data)
+        });
+        const json = await r.json();
+        _savedLeadId = json.id || null;
+      } catch (_) { /* non-blocking — continue to step 2 */ }
+
+      // Slide to step 2
+      document.getElementById('ctaStep1').style.display = 'none';
+      const s2 = document.getElementById('ctaStep2');
+      s2.style.display = 'block';
+      s2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    async function handleCtaStep2(e) {
+      e.preventDefault();
+      const f   = e.target;
+      const btn = document.getElementById('ctaStep2Btn');
+
+      // Validate all hidden fields are filled
+      const required = f.querySelectorAll('input[type=hidden][required]');
+      const missing  = [...required].filter(i => !i.value);
+      if (missing.length) {
+        // highlight the unanswered block
+        missing.forEach(inp => {
+          const block = inp.closest('.q-block');
+          block.style.outline = '2px solid #f97316';
+          block.style.borderRadius = '8px';
+          setTimeout(() => block.style.outline = '', 2000);
+        });
+        return;
+      }
+
+      btn.textContent = 'Submitting…'; btn.disabled = true;
+
+      const budget   = f.querySelector('[name=budget]').value;
+      const timeline = f.querySelector('[name=timeline]').value;
+      const ownership= f.querySelector('[name=ownership]').value;
+      const quotes   = f.querySelector('[name=quotes]').value;
+      const priority = f.querySelector('[name=priority]').value;
+
+      const fullMessage = [
+        `City/ZIP: ${_ctaStep1Data.city}`,
+        `Budget: ${budget}`,
+        `Timeline: ${timeline}`,
+        `Owns Property: ${ownership}`,
+        `Other Quotes: ${quotes}`,
+        `Priority: ${priority}`
+      ].join('\n');
+
+      const finalData = {
+        ..._ctaStep1Data,
+        budget:  budget,
+        message: fullMessage
+      };
+
+      try {
+        await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(finalData)
+        });
+      } catch (_) { /* best-effort */ }
+
+      // Fire Meta Pixel Lead event
+      if (window.fbq) fbq('track', 'Lead');
+
+      window.location.href = 'thank-you.html?' + new URLSearchParams({
+        name:    _ctaStep1Data.name,
+        service: _ctaStep1Data.project_type,
+        ts:      Date.now()
+      });
+    }
+
+    // ── LEGACY bottom form handler (kept as safety fallback) ──────
 
       const data = {
         name: f.fname.value.trim(),
