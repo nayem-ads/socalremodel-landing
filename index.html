@@ -1128,27 +1128,18 @@
     /* ============================
        HERO CONTACT FORM
     ============================ */
-    .hf-field { margin-bottom: 13px; }
-    .hf-field label {
-      display: block;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 5px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-    }
+    .hf-field { margin-bottom: 18px; }
     .hf-field input,
     .hf-field select {
       width: 100%;
       min-height: 50px;
       padding: 13px 16px;
-      border: 1.5px solid #e2e8f0;
+      border: 1px solid rgba(148, 163, 184, 0.45); /* Soft faded border */
       border-radius: 10px;
-      background: #f8fafc;
-      color: #0f172a;
+      background: rgba(241, 245, 249, 0.5); /* Faded soft background */
+      color: #334155;
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 15.5px;
       font-weight: 400;
       outline: none;
       transition: border-color .2s, box-shadow .2s, background .2s;
@@ -1160,7 +1151,7 @@
     .hf-field select:focus {
       border-color: #f97316;
       background: #fff;
-      box-shadow: 0 0 0 3px rgba(249,115,22,.12);
+      box-shadow: 0 0 0 3px rgba(249,115,22,.1);
     }
     .hf-field select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -1437,26 +1428,20 @@
     <div class="hero-inner container">
       <!-- CONTACT FORM — first in DOM → top on mobile, right on desktop -->
       <div id="lead-form" class="hero-form-card fade-up" style="order:2;">
-        <div class="form-badge">Free &amp; No-Obligation</div>
-        <h3>Request Your Free Estimate</h3>
-        <p class="form-sub">A licensed SoCal specialist will contact you within 24 hours.</p>
+        <h3 style="margin-bottom: 20px; text-align: center;">Request Your Free Estimate</h3>
         <form id="mainLeadForm" onsubmit="handleFormSubmit(event)" novalidate>
           <div class="hf-field">
-            <label for="hf-name">Full Name</label>
-            <input id="hf-name" name="fname" type="text" placeholder="Your full name" autocomplete="name" required />
+            <input id="hf-name" name="fname" type="text" placeholder="Full name" autocomplete="name" required />
           </div>
           <div class="hf-field">
-            <label for="hf-phone">Phone Number</label>
-            <input id="hf-phone" name="phone" type="tel" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
+            <input id="hf-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel" inputmode="tel" required />
           </div>
           <div class="hf-field">
-            <label for="hf-zip">Zip Code</label>
-            <input id="hf-zip" name="zip" type="text" placeholder="90210" inputmode="numeric" maxlength="5" required />
+            <input id="hf-zip" name="zip" type="text" placeholder="Zip code" inputmode="numeric" maxlength="5" required />
           </div>
           <div class="hf-field">
-            <label for="hf-service">Project Type</label>
             <select id="hf-service" name="service" required>
-              <option value="" disabled selected>Select your project</option>
+              <option value="" disabled selected>Project type</option>
               <option value="Kitchen Remodel">Kitchen Remodel</option>
               <option value="ADU / Garage Conversion">ADU / Garage Conversion</option>
               <option value="Home Addition">Home Addition</option>
@@ -1844,161 +1829,6 @@
       const wasOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!wasOpen) item.classList.add('open');
-    }
-
-    // ── TWO-STEP BOTTOM FORM ─────────────────────────────────────
-    // Stores step 1 data to merge with step 2 before final submission
-    let _ctaStep1Data = {};
-    let _savedLeadId  = null;
-
-    // Phone formatter for bottom form inputs
-    document.querySelectorAll('#ctaForm1 input[type="tel"]').forEach(inp => {
-      inp.addEventListener('input', function() {
-        let v = this.value.replace(/\D/g,'');
-        if (v.length <= 3) this.value = v;
-        else if (v.length <= 6) this.value = '(' + v.slice(0,3) + ') ' + v.slice(3);
-        else this.value = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
-      });
-    });
-
-    // Qualification option click handler
-    document.querySelectorAll('.q-opt').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const field = btn.dataset.field;
-        // deselect siblings
-        btn.closest('.q-options').querySelectorAll('.q-opt').forEach(b => b.classList.remove('q-selected'));
-        btn.classList.add('q-selected');
-        // write hidden input
-        document.querySelector(`#ctaForm2 input[name="${field}"]`).value = btn.dataset.value;
-        // update progress bar
-        const answered = document.querySelectorAll('#ctaForm2 input[type=hidden][required]');
-        const filled   = [...answered].filter(i => i.value).length;
-        document.querySelector('.step2-bar').style.width = (filled / answered.length * 100) + '%';
-      });
-    });
-
-    async function handleCtaStep1(e) {
-      e.preventDefault();
-      const f   = e.target;
-      const btn = document.getElementById('ctaStep1Btn');
-      btn.textContent = 'Saving…'; btn.disabled = true;
-
-      _ctaStep1Data = {
-        name:         f.fname.value.trim(),
-        phone:        f.phone.value.trim(),
-        city:         f.city.value.trim(),
-        project_type: f.service.value,
-        email:        'pending@socalremodelquotes.com',
-        budget:       'Pending qualification',
-        message:      `City/ZIP: ${f.city.value.trim()} | Step 1 captured`
-      };
-
-      // Immediately save to DB so the lead is never lost
-      try {
-        const r = await fetch('/api/leads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(_ctaStep1Data)
-        });
-        const json = await r.json();
-        _savedLeadId = json.id || null;
-      } catch (_) { /* non-blocking — continue to step 2 */ }
-
-      // Slide to step 2
-      document.getElementById('ctaStep1').style.display = 'none';
-      const s2 = document.getElementById('ctaStep2');
-      s2.style.display = 'block';
-      s2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    async function handleCtaStep2(e) {
-      e.preventDefault();
-      const f   = e.target;
-      const btn = document.getElementById('ctaStep2Btn');
-
-      // Validate all hidden fields are filled
-      const required = f.querySelectorAll('input[type=hidden][required]');
-      const missing  = [...required].filter(i => !i.value);
-      if (missing.length) {
-        // highlight the unanswered block
-        missing.forEach(inp => {
-          const block = inp.closest('.q-block');
-          block.style.outline = '2px solid #f97316';
-          block.style.borderRadius = '8px';
-          setTimeout(() => block.style.outline = '', 2000);
-        });
-        return;
-      }
-
-      btn.textContent = 'Submitting…'; btn.disabled = true;
-
-      const budget   = f.querySelector('[name=budget]').value;
-      const timeline = f.querySelector('[name=timeline]').value;
-      const ownership= f.querySelector('[name=ownership]').value;
-      const quotes   = f.querySelector('[name=quotes]').value;
-      const priority = f.querySelector('[name=priority]').value;
-
-      const fullMessage = [
-        `City/ZIP: ${_ctaStep1Data.city}`,
-        `Budget: ${budget}`,
-        `Timeline: ${timeline}`,
-        `Owns Property: ${ownership}`,
-        `Other Quotes: ${quotes}`,
-        `Priority: ${priority}`
-      ].join('\n');
-
-      const finalData = {
-        ..._ctaStep1Data,
-        budget:  budget,
-        message: fullMessage
-      };
-
-      try {
-        await fetch('/api/leads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalData)
-        });
-      } catch (_) { /* best-effort */ }
-
-      // Fire Meta Pixel Lead event
-      if (window.fbq) fbq('track', 'Lead');
-
-      window.location.href = 'thank-you.html?' + new URLSearchParams({
-        name:    _ctaStep1Data.name,
-        service: _ctaStep1Data.project_type,
-        ts:      Date.now()
-      });
-    }
-
-    // ── LEGACY bottom form handler (kept as safety fallback) ──────
-
-      const data = {
-        name: f.fname.value.trim(),
-        email: f.email.value.trim() || 'no-email@socalremodelquotes.com',
-        phone: f.phone.value.trim(),
-        project_type: f.service.value,
-        budget: 'Not specified',
-        message: f.message.value.trim() || 'Submitted via bottom contact form'
-      };
-
-      try {
-        const r = await fetch('/api/leads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        if (!r.ok) throw new Error('Submission failed');
-        window.location.href = 'thank-you.html?' + new URLSearchParams({
-          name: data.name,
-          service: data.project_type,
-          ts: Date.now()
-        });
-      } catch (err) {
-        btn.innerHTML = origText;
-        btn.disabled = false;
-        alert('Something went wrong. Please try again or call (323) 689-5004.');
-      }
     }
 
     // ── ANALYTICS & CALL PERSISTENCE TRACKING ───────────────────
