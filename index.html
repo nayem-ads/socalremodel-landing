@@ -1365,10 +1365,53 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-inner container">
-      <div class="hero-content">
+      <!-- FORM FIRST in DOM = top on mobile -->
+      <div id="lead-form" class="hero-form-card fade-up" style="order:2;">
+        <div class="form-badge">Free &amp; No-Obligation</div>
+        <h3>See What Your Remodel Will Cost</h3>
+        <p class="form-sub">Answer 3 quick questions and get a real estimate in 24 hours.</p>
+        <div class="ms-progress"><div class="ms-bar" id="msBar"></div><span id="msLabel">Step 1 of 3</span></div>
+        <form id="mainLeadForm" onsubmit="handleFormSubmit(event)">
+          <div class="ms-step active" data-step="1">
+            <p class="ms-q">What are you planning?</p>
+            <div class="ms-grid">
+              <button type="button" class="ms-opt" data-field="service" data-value="Kitchen Remodel">Kitchen Remodel</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="ADU / Garage Conversion">ADU / Garage</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="Home Addition">Home Addition</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="Whole Home Renovation">Full Renovation</button>
+              <button type="button" class="ms-opt ms-wide" data-field="service" data-value="Other">Other Project</button>
+            </div>
+          </div>
+          <div class="ms-step" data-step="2">
+            <p class="ms-q">What is your project budget?</p>
+            <div class="ms-grid">
+              <button type="button" class="ms-opt" data-field="budget" data-value="Under $30,000">Under $30K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$30k - $60k">$30K to $60K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$60k - $100k">$60K to $100K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$100k+">$100K+</button>
+            </div>
+            <button type="button" class="ms-back" onclick="msGo(1)">&larr; Back</button>
+          </div>
+          <div class="ms-step" data-step="3">
+            <p class="ms-q">Where should we send your quote?</p>
+            <label>Name *</label>
+            <input name="fname" type="text" placeholder="Full name" required>
+            <label>Phone *</label>
+            <input name="phone" type="tel" placeholder="(323) 555-0000" required>
+            <label>Email (optional)</label>
+            <input name="email" type="email" placeholder="your@email.com">
+            <button type="submit" class="btn-submit">Send My Estimate Request &rarr;</button>
+            <p class="ms-secure">Your information is private and never shared.</p>
+            <button type="button" class="ms-back" onclick="msGo(2)">&larr; Back</button>
+          </div>
+          <input type="hidden" name="service"><input type="hidden" name="budget">
+        </form>
+      </div>
+
+      <!-- HERO CONTENT — order:1 keeps it LEFT on desktop, bottom on mobile -->
+      <div class="hero-content" style="order:1;">
         <!-- Google Trust Badge -->
         <div class="google-badge fade-up">
-            <!-- Google G logo -->
             <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
               <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
               <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
@@ -1404,42 +1447,7 @@
         <h3>See What Your Remodel Will Cost</h3>
         <p class="form-sub">Answer 3 quick questions and get a real estimate in 24 hours.</p>
         <div class="ms-progress"><div class="ms-bar" id="msBar"></div><span id="msLabel">Step 1 of 3</span></div>
-        <form id="mainLeadForm" onsubmit="handleFormSubmit(event)">
-          <div class="ms-step active" data-step="1">
-            <p class="ms-q">What are you planning?</p>
-            <div class="ms-grid">
-              <button type="button" class="ms-opt" data-field="service" data-value="Kitchen Remodel">Kitchen Remodel</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="ADU / Garage Conversion">ADU / Garage</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="Home Addition">Home Addition</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="Whole Home Renovation">Full Renovation</button>
-              <button type="button" class="ms-opt ms-wide" data-field="service" data-value="Other">Other Project</button>
-            </div>
-          </div>
-          <div class="ms-step" data-step="2">
-            <p class="ms-q">What is your project budget?</p>
-            <div class="ms-grid">
-              <button type="button" class="ms-opt" data-field="budget" data-value="Under $30,000">Under $30K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$30k - $60k">$30K - $60K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$60k - $100k">$60K - $100K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$100k+">$100K+</button>
-            </div>
-            <button type="button" class="ms-back" onclick="msGo(1)">← Back</button>
-          </div>
-          <div class="ms-step" data-step="3">
-            <p class="ms-q">Where should we send your quote?</p>
-            <label>Name *</label>
-            <input name="fname" type="text" placeholder="Full name" required>
-            <label>Phone *</label>
-            <input name="phone" type="tel" placeholder="(323) 555-0000" required>
-            <label>Email (optional)</label>
-            <input name="email" type="email" placeholder="your@email.com">
-            <button type="submit" class="btn-submit">Send My Estimate Request &rarr;</button>
-            <p class="ms-secure">Your information is private and never shared.</p>
-            <button type="button" class="ms-back" onclick="msGo(2)">← Back</button>
-          </div>
-          <input type="hidden" name="service"><input type="hidden" name="budget">
-        </form>
-      </div>
+
       <style>
       .ms-progress{position:relative;height:5px;background:#e8edf4;border-radius:99px;margin:14px 0 20px}
       .ms-bar{height:100%;width:33.3%;background:linear-gradient(90deg,#f97316,#fb923c);border-radius:99px;transition:width .35s ease}
