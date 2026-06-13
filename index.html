@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoCal Remodel Quotes | Free Home Remodeling Quotes in Southern California</title>
-  <meta name="description" content="Get a free, no-obligation remodeling quote from Southern California's trusted contractors. Kitchen remodels, home additions, ADUs, bathrooms & more. Licensed, bonded & insured." />
+  <meta name="description" content="Get a free, no-obligation remodeling quote from Southern California's trusted contractors. Kitchen remodels, home additions, ADUs & more. Licensed, bonded & insured." />
   <meta property="og:title" content="SoCal Remodel Quotes – Free Quote, No Obligation" />
   <meta property="og:description" content="Transform your home with SoCal's top-rated remodeling team. Kitchens, additions, ADUs & more." />
 
@@ -277,7 +277,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('hero.png');
+      background-image: url('hero_bg.webp');
       background-size: cover; background-position: center top;
       opacity: 0.25;
     }
@@ -989,6 +989,13 @@
     @media (max-width: 420px) {
       .steps-grid { grid-template-columns: 1fr; }
     }
+    #mainLeadForm input, #mainLeadForm select, #mainLeadForm textarea {
+      font-size: 16px;        /* never below 16px — iOS zooms otherwise */
+      min-height: 52px;
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+    #mainLeadForm label { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
   </style>
 </head>
 <body>
@@ -1050,79 +1057,169 @@
       <!-- Left: Copy -->
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">
-          🏗️ SoCal's Premium Remodeling Specialist
+          SoCal's Kitchen & ADU Specialists
         </div>
         <h1 class="hero-title fade-up delay-1">
-          Transform Your Home.<br />
-          <span class="highlight">Maximize Its Value.</span>
+          The Kitchen You've Always Wanted.<br />
+          <span class="highlight">The ADU That Pays For Itself.</span>
         </h1>
-        <p class="hero-desc fade-up delay-2">
-          From modern kitchens and spa-like bathrooms to permitted ADUs and home additions — we deliver master-level craftsmanship and stress-free construction.
+        <p class="hero-desc fade-up delay-2" style="display: block !important;">
+          Fixed-price remodels by Southern California's most trusted crew. Free itemized quote in 24 hours — and 0% APR financing for qualified homeowners.
         </p>
-        <div class="hero-trust fade-up delay-3">
-          <div class="trust-badge"><span class="dot">✓</span> No Hidden Fees</div>
-          <div class="trust-badge"><span class="dot">✓</span> Free In-Home Consultation</div>
-          <div class="trust-badge"><span class="dot">✓</span> 5-Year Warranty</div>
+        <div class="hero-trust fade-up delay-3" style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.4; display: block !important; margin-top: 28px;">
+          ✓ Fixed-Price Quotes &middot; ✓ Free Design Visit &middot; ✓ 5-Year Warranty
         </div>
       </div>
 
       <!-- Right: Form Card -->
       <div id="lead-form" class="hero-form-card fade-up delay-4">
-        <div class="form-card-header">
-          <div class="free-badge">100% Free · No Obligation</div>
-          <h3>Get Your Free Quote</h3>
-          <p>We'll match you with a local specialist today</p>
-        </div>
+        <div class="form-badge">100% FREE · NO OBLIGATION</div>
+        <h3>Get Your Free Itemized Quote</h3>
+        <p class="form-sub">30 seconds. No spam, no pressure — just a real number from a licensed estimator.</p>
 
-        <form id="mainLeadForm" action="thank-you.html" method="GET" onsubmit="handleFormSubmit(event)">
-          <div class="form-group">
-            <label for="fname">Full Name *</label>
-            <input type="text" id="fname" name="fname" class="form-control" placeholder="Your full name" required />
+        <div class="ms-progress"><div class="ms-bar" id="msBar"></div><span id="msLabel">Step 1 of 3</span></div>
+
+        <form id="mainLeadForm" onsubmit="handleFormSubmit(event)">
+          <div class="ms-step active" data-step="1">
+            <p class="ms-q">What are we building?</p>
+            <div class="ms-grid">
+              <button type="button" class="ms-opt" data-field="service" data-value="Kitchen Remodel">🍳 Kitchen Remodel</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="ADU / Garage Conversion">🏗️ ADU / Garage</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="Home Addition">🏠 Home Addition</button>
+              <button type="button" class="ms-opt" data-field="service" data-value="Whole Home Renovation">🔨 Whole Home</button>
+              <button type="button" class="ms-opt ms-wide" data-field="service" data-value="Other">✚ Something Else</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required />
+          <div class="ms-step" data-step="2">
+            <p class="ms-q">What's your budget zone?</p>
+            <p class="ms-hint">Ballpark is fine — it shapes the design options we bring you.</p>
+            <div class="ms-grid">
+              <button type="button" class="ms-opt" data-field="budget" data-value="Under $30,000">Under $30K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$30,000 – $60,000">$30–60K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$60,000 – $100,000">$60–100K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$100,000 – $200,000">$100–200K</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="$200,000+">$200K+</button>
+              <button type="button" class="ms-opt" data-field="budget" data-value="Not sure yet">Not sure yet</button>
+            </div>
+            <button type="button" class="ms-back" onclick="msGo(1)">← Back</button>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(323) 555-0000" required />
+          <div class="ms-step" data-step="3">
+            <p class="ms-q">Where should we send your quote?</p>
+            <label>Full Name *</label>
+            <input name="fname" type="text" autocomplete="name" placeholder="Your full name" required>
+            <label>Phone Number *</label>
+            <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(323) 555-0000" required>
+            <label>Email (optional)</label>
+            <input name="email" type="email" autocomplete="email" inputmode="email" placeholder="your@email.com">
+            <button type="submit" class="btn-submit">Get My Free Quote →</button>
+            <p class="ms-secure">🔒 Your info stays with us. One call. Zero spam.</p>
+            <button type="button" class="ms-back" onclick="msGo(2)">← Back</button>
           </div>
-          <div class="form-group">
-            <label for="service">Project Type *</label>
-            <select id="service" name="service" class="form-control" required>
-              <option value="" disabled selected>Select your project…</option>
-              <option value="kitchen">Kitchen Remodel</option>
-              <option value="bathroom">Bathroom Remodel</option>
-              <option value="home-addition">Home Addition</option>
-              <option value="adu">ADU / Garage Conversion</option>
-              <option value="whole-home">Whole Home Renovation</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="budget">Estimated Budget</label>
-            <select id="budget" name="budget" class="form-control">
-              <option value="" disabled selected>Your budget range…</option>
-              <option value="under-30k">Under $30,000</option>
-              <option value="30-60k">$30,000 – $60,000</option>
-              <option value="60-100k">$60,000 – $100,000</option>
-              <option value="100-200k">$100,000 – $200,000</option>
-              <option value="200k+">$200,000+</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
-          </div>
-          <div class="form-group message-group">
-            <label for="message">Tell us about your project</label>
-            <textarea id="message" name="message" class="form-control" rows="2" placeholder="Briefly describe what you need…" style="height: auto; resize: vertical;"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">
-            🚀 Get My Free Quote Now
-          </button>
+          <input type="hidden" name="service">
+          <input type="hidden" name="budget">
         </form>
-        <p class="form-privacy">
-          <span class="lock">🔒</span> Your info is private and secure. No spam ever.
-        </p>
       </div>
+
+      <style>
+      .form-badge {
+        display: inline-block;
+        background: var(--accent); color: var(--white);
+        font-size: 10px; font-weight: 800; letter-spacing: .06em;
+        text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+        margin-bottom: 6px;
+      }
+      .form-sub {
+        color: var(--text-muted); font-size: 13px; margin: 0;
+      }
+      .ms-progress{position:relative;height:6px;background:#e8edf4;border-radius:99px;margin:14px 0 18px}
+      .ms-bar{height:100%;width:33.3%;background:linear-gradient(90deg,#f97316,#fb923c);border-radius:99px;transition:width .35s ease}
+      .ms-progress span{position:absolute;right:0;top:10px;font-size:12px;color:#64748b;font-weight:600}
+      .ms-step{display:none}.ms-step.active{display:block;animation:msIn .3s ease}
+      @keyframes msIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+      .ms-q{font-family:Outfit,sans-serif;font-weight:800;font-size:19px;color:#0b1329;margin:14px 0 4px}
+      .ms-hint{font-size:13px;color:#64748b;margin:0 0 12px}
+      .ms-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+      .ms-wide{grid-column:1 / -1}
+      .ms-opt{min-height:52px;border:2px solid #e2e8f0;border-radius:12px;background:#fff;font-size:15px;
+        font-weight:600;color:#0b1329;cursor:pointer;transition:all .15s}
+      .ms-opt:hover,.ms-opt:active{border-color:#f97316;background:#fff7ed}
+      .ms-opt.selected{border-color:#f97316;background:#fff7ed;box-shadow:0 0 0 3px rgba(249,115,22,.15)}
+      .ms-back{background:none;border:none;color:#64748b;font-size:13px;margin-top:14px;cursor:pointer;text-decoration:underline}
+      #mainLeadForm label{display:block;font-size:14px;font-weight:600;color:#0b1329;margin:14px 0 6px}
+      #mainLeadForm input{width:100%;font-size:16px;min-height:52px;padding:14px 16px;border:1.5px solid #e2e8f0;border-radius:10px}
+      #mainLeadForm input:focus{border-color:#f97316;outline:none;box-shadow:0 0 0 3px rgba(249,115,22,.15)}
+      .btn-submit{width:100%;min-height:58px;font-size:18px;font-weight:800;font-family:Outfit,sans-serif;
+        color:#fff;background:linear-gradient(135deg,#f97316,#ea580c);border:none;border-radius:12px;margin-top:18px;cursor:pointer}
+      .ms-secure{font-size:12.5px;color:#64748b;text-align:center;margin-top:10px}
+      </style>
+
+      <script>
+      function msGo(n){
+        document.querySelectorAll('.ms-step').forEach(s=>s.classList.toggle('active', s.dataset.step==n));
+        document.getElementById('msBar').style.width=(n*33.33)+'%';
+        document.getElementById('msLabel').textContent='Step '+n+' of 3';
+        if(n===3) setTimeout(()=>document.querySelector('[name=fname]').focus({preventScroll:true}),350);
+      }
+      document.querySelectorAll('.ms-opt').forEach(btn=>btn.addEventListener('click',()=>{
+        const f=btn.dataset.field;
+        document.querySelector('input[name='+f+']').value=btn.dataset.value;
+        btn.parentElement.querySelectorAll('.ms-opt').forEach(b=>b.classList.remove('selected'));
+        btn.classList.add('selected');
+        setTimeout(()=>msGo(f==='service'?2:3),180);
+      }));
+      window.setStepService=function(v){
+        document.querySelector('input[name=service]').value=v;
+        document.querySelectorAll('[data-field=service]').forEach(b=>b.classList.remove('selected'));
+        const b=[...document.querySelectorAll('[data-field=service]')].find(x=>x.dataset.value===v);
+        if(b) b.classList.add('selected');
+        msGo(2);
+      };
+      async function handleFormSubmit(e){
+        e.preventDefault();
+        const f=e.target,btn=f.querySelector('.btn-submit');
+        btn.textContent='⏳ Sending…';btn.disabled=true;
+        const data={
+          name:f.fname.value.trim(), email:f.email.value.trim() || 'no-email@socalremodelquotes.com', phone:f.phone.value.trim(),
+          project_type:f.querySelector('input[name=service]').value,
+          budget:f.querySelector('input[name=budget]').value, message:''
+        };
+        try{
+          const r=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+          if(!r.ok) throw new Error('Submission failed');
+          location.href='thank-you.html?'+new URLSearchParams({name:data.name,service:data.project_type,ts:Date.now()});
+        }catch(err){
+          btn.textContent='Get My Free Quote →';btn.disabled=false;
+          alert('Something went wrong. Please try again or call (323) 689-5004.');
+        }
+      }
+
+      // ── DYNAMIC URL MATCHING & CTA INTENT ─────────────────────────
+      const SERVICE_COPY = {
+        kitchen: {
+          h1: 'A Kitchen Worth Showing Off —<br><span class="highlight">In 6 Weeks, At a Fixed Price.</span>',
+          sub: 'Custom cabinetry, quartz islands, smart storage — built by SoCal\u2019s most trusted kitchen crew. Free itemized quote in 24 hours. 0% APR financing available.',
+          select: 'Kitchen Remodel'
+        },
+        adu: {
+          h1: 'Turn Your Garage Into<br><span class="highlight">$2,000+ a Month.</span>',
+          sub: 'Fully permitted ADU & garage conversions — design, city permits, and construction handled end-to-end. Free feasibility quote in 24 hours.',
+          select: 'ADU / Garage Conversion'
+        }
+      };
+      
+      window.addEventListener('DOMContentLoaded', () => {
+        const svc = new URLSearchParams(location.search).get('service');
+        if (svc && SERVICE_COPY[svc]) {
+          const c = SERVICE_COPY[svc];
+          document.querySelector('.hero h1').innerHTML = c.h1;
+          document.querySelector('.hero p.hero-desc').textContent = c.sub;
+          if (window.setStepService) setStepService(c.select);
+        }
+        
+        document.querySelectorAll('.preselect').forEach(a =>
+          a.addEventListener('click', () => { if (a.dataset.service && window.setStepService) window.setStepService(a.dataset.service); }));
+      });
+      </script>
     </div>
   </section>
 
@@ -1145,8 +1242,8 @@
           <div class="stat-label">Years in SoCal</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Free Consults</div>
+          <div class="stat-number">24hr</div>
+          <div class="stat-label">Callback Time</div>
         </div>
       </div>
     </div>
@@ -1158,9 +1255,9 @@
   <section class="section tabbed-portfolio" id="transformations">
     <div class="container">
       <div class="text-center" style="margin-bottom: 56px;">
-        <span class="badge">Real Transformations</span>
-        <h2 class="section-title">Explore Our Work & Transformations</h2>
-        <p class="section-sub" style="margin-bottom: 0;">Drag the sliders below to see actual before/after results of our kitchen and ADU conversions.</p>
+        <span class="badge">Our Craft</span>
+        <h2 class="section-title">See What Six Weeks Can Do.</h2>
+        <p class="section-sub" style="margin-bottom: 0;">Drag the sliders below to see before/after examples of our kitchen and ADU conversions.</p>
       </div>
 
       <!-- Transformation 1: Kitchens -->
@@ -1169,9 +1266,9 @@
           <div class="tab-visual">
             <div class="before-after-wrapper">
               <div class="comparison-slider">
-                <img src="kitchen_after.png" alt="Kitchen After Remodel" class="image-after" />
+                <img src="kitchen_after.webp" alt="Kitchen After Remodel" class="image-after" />
                 <div class="img-before-wrapper">
-                  <img src="kitchen_before.png" alt="Kitchen Before Remodel" class="image-before" />
+                  <img src="kitchen_before.webp" alt="Kitchen Before Remodel" class="image-before" />
                 </div>
                 <div class="slider-handle">
                   <div class="handle-line"></div>
@@ -1193,7 +1290,7 @@
               <li>Integrated smart appliances & custom storage</li>
             </ul>
             <div class="tab-cta">
-              <a href="#lead-form" class="btn btn-primary">Plan My Kitchen Remodel →</a>
+              <a href="#lead-form" class="btn btn-primary preselect" data-service="Kitchen Remodel">Plan My Kitchen Remodel →</a>
             </div>
           </div>
         </div>
@@ -1205,9 +1302,9 @@
           <div class="tab-visual">
             <div class="before-after-wrapper">
               <div class="comparison-slider">
-                <img src="adu_after.png" alt="ADU After Conversion" class="image-after" />
+                <img src="adu_after.webp" alt="ADU After Conversion" class="image-after" />
                 <div class="img-before-wrapper">
-                  <img src="adu_before.png" alt="Garage Before Conversion" class="image-before" />
+                  <img src="adu_before.webp" alt="Garage Before Conversion" class="image-before" />
                 </div>
                 <div class="slider-handle">
                   <div class="handle-line"></div>
@@ -1222,14 +1319,14 @@
           </div>
           <div class="tab-info">
             <h3>Permitted ADUs & Garage Conversions</h3>
-            <p>Unlock passive rental income or build a private suite for family. We manage the entire lifecycle of your Accessory Dwelling Unit (ADU) — including architectural design, engineering, CSLB permits, inspections, and construction.</p>
+            <p>Unlock passive rental income or build a private suite for family. We manage the entire lifecycle of your Accessory Dwelling Unit (ADU) — including architectural design, engineering, California permits, inspections, and construction.</p>
             <ul class="tab-highlights">
               <li>Full permit & code-compliance management</li>
-              <li>Custom kitchens, full baths, & HVAC zones</li>
+              <li>Custom kitchens, spacious living areas, & HVAC zones</li>
               <li>Independent utility hookups & private entryways</li>
             </ul>
             <div class="tab-cta">
-              <a href="#lead-form" class="btn btn-primary">Start My ADU Estimate →</a>
+              <a href="#lead-form" class="btn btn-primary preselect" data-service="ADU / Garage Conversion">Start My ADU Estimate →</a>
             </div>
           </div>
         </div>
@@ -1244,16 +1341,12 @@
       <div id="other-services-pane" class="fade-in-pane" style="display: none; margin-top: 56px; border-top: 1px solid var(--border); padding-top: 56px;">
         <div class="text-center" style="margin-bottom: 40px;">
           <h3 style="font-size: 24px; color: var(--primary);">Our Full Range of Remodeling Services</h3>
-          <p style="color: var(--text-muted); font-size: 15px; margin-top: 4px;">Whether you're looking for a bathroom upgrade or a complete home addition, we do it all.</p>
+          <p style="color: var(--text-muted); font-size: 15px; margin-top: 4px;">Whether you're looking for a kitchen upgrade or a complete home addition, we do it all.</p>
         </div>
 
         <div class="tab-grid">
           <div class="tab-visual">
             <div class="other-services-list">
-              <div class="other-service-item">
-                <h4>🛁 Bathroom Remodels</h4>
-                <p>Walk-in custom tile showers, floating vanities, and soaking tubs built to feel like a spa.</p>
-              </div>
               <div class="other-service-item">
                 <h4>🏠 Home & Room Additions</h4>
                 <p>Expand your living space, build custom master suites, or construct second-story additions.</p>
@@ -1264,7 +1357,7 @@
               </div>
               <div class="other-service-item">
                 <h4>🎨 Custom Floorplans & Design</h4>
-                <p>CSLB permit-ready architectural drawings, structural engineering, and design concepts.</p>
+                <p>California permit-ready architectural drawings, structural engineering, and design concepts.</p>
               </div>
             </div>
           </div>
@@ -1274,15 +1367,37 @@
             <ul class="tab-highlights">
               <li>Fixed-price quotes with zero hidden charges</li>
               <li>Dedicated Project Manager for daily updates</li>
-              <li>CSLB Licensed, Bonded, & fully insured</li>
+              <li>California Licensed, Bonded, & fully insured</li>
             </ul>
             <div class="tab-cta">
-              <a href="#lead-form" class="btn btn-primary">Get Custom Project Quote →</a>
+              <a href="#lead-form" class="btn btn-primary preselect" data-service="Other">Get Custom Project Quote →</a>
             </div>
           </div>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ============================
+       FINANCING BANNER
+  ============================ -->
+  <section class="section-sm financing" style="background: var(--bg-light); padding: 0 0 56px 0;">
+    <div class="container">
+      <div style="background: var(--primary); border: 3px solid var(--accent); border-radius: var(--radius-lg); padding: 40px; color: #fff;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <span class="badge" style="background: rgba(249,115,22,0.2); color: var(--accent); margin-bottom: 12px;">0% APR Financing</span>
+            <h3 style="color: #fff; font-size: 24px; font-weight: 800; margin-bottom: 8px; font-family: 'Outfit', sans-serif;">Need Financing? We Offer 0% APR Options.</h3>
+            <p style="color: rgba(255,255,255,0.85); font-size: 15px; margin: 0; line-height: 1.6;">
+              Get your dream kitchen or garage conversion started today with flexible monthly payment plans and promotional 0% APR options. Ask your design consultant during your free consultation.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center;">
+            <a href="#lead-form" class="btn btn-primary btn-lg" style="margin: 0; box-shadow: none;">Check My Options →</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1325,7 +1440,7 @@
   <section class="section testimonials" id="reviews">
     <div class="container text-center">
       <span class="badge">Client Reviews</span>
-      <h2 class="section-title">Real Homeowners. Real Results.</h2>
+      <h2 class="section-title">What Your Neighbors Are Saying.</h2>
       <p class="section-sub">Here is what your Southern California neighbors say about our projects.</p>
 
       <div class="testi-grid">
@@ -1373,7 +1488,7 @@
     <div class="container text-center">
       <span class="badge green">FAQ</span>
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-sub">Clear answers to Southern California remodeling questions.</p>
+      <p class="section-sub">We believe in total transparency. Here are the questions we hear most often.</p>
 
       <div class="faq-grid">
         <div class="faq-item" id="faq-1">
@@ -1382,37 +1497,57 @@
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Most kitchen remodels in Southern California range from $30,000–$80,000+ depending on size, materials, and structural changes. We provide itemized fixed-price quotes.</div>
+            <div class="faq-answer-inner">Most kitchen remodels in Southern California range from $30,000–$80,000+ depending on size, materials, and layout changes. We provide detailed, itemized quotes so you know exactly what you're paying for — with no surprises.</div>
           </div>
         </div>
 
         <div class="faq-item" id="faq-2">
           <button class="faq-question" onclick="toggleFaq('faq-2')">
-            Do you handle all ADU and remodeling permits?
+            How long does a home addition take?
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Yes — we handle all permit submittals, building code compliance, engineering, CSLB registry, and inspection approvals from day one until sign-off.</div>
+            <div class="faq-answer-inner">A typical room addition takes 8–16 weeks from permit approval to completion. Larger additions or ADUs may take 4–6 months. We provide a detailed milestone schedule before we break ground.</div>
           </div>
         </div>
 
         <div class="faq-item" id="faq-3">
           <button class="faq-question" onclick="toggleFaq('faq-3')">
-            Is your estimate and design visit really free?
+            Do you handle permits?
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. Our consultation, measurements, and detailed cost estimates are 100% free with absolutely zero obligation to proceed.</div>
+            <div class="faq-answer-inner">Yes — we handle all permits, inspections, and code compliance. Our team has deep experience navigating Southern California's permitting process including ADU permits which can be especially complex.</div>
           </div>
         </div>
 
         <div class="faq-item" id="faq-4">
           <button class="faq-question" onclick="toggleFaq('faq-4')">
-            Do you offer project financing?
+            Can I finance my remodel?
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. We partner with top lenders to offer flexible home improvement financing plans, including 0% APR options for qualified homeowners.</div>
+            <div class="faq-answer-inner">Absolutely. We offer flexible financing options including 0% APR promotional periods through our lending partners. Ask about financing options when you receive your free quote.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-5">
+          <button class="faq-question" onclick="toggleFaq('faq-5')">
+            Is the quote really free?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">100% free. No consultation fee, no obligation, no pressure. We earn your business by delivering great estimates and even better workmanship.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-6">
+          <button class="faq-question" onclick="toggleFaq('faq-6')">
+            Are you licensed and insured in California?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. We are fully licensed with the California State License Board (CSLB), bonded, and carry comprehensive general liability and workers' compensation insurance on every project.</div>
           </div>
         </div>
       </div>
@@ -1426,11 +1561,14 @@
     <div class="container">
       <h2>Ready to Start Planning?</h2>
       <p>Talk to a local SoCal design consultant and get your free itemized quote today.</p>
-      <div class="cta-form-inline">
-        <input type="tel" id="cta-phone" placeholder="Enter your phone number" />
-        <button class="btn btn-primary btn-lg" onclick="quickSubmit()">
-          Call Me Now →
-        </button>
+      <div class="cta-form-wrapper" style="max-width: 480px; margin: 0 auto 24px; text-align: left;">
+        <label for="cta-phone" style="display: block; font-size: 14px; font-weight: bold; color: #ffffff; margin-bottom: 8px;">Prefer we call you? Drop your number:</label>
+        <div class="cta-form-inline" style="margin: 0;">
+          <input type="tel" id="cta-phone" placeholder="Enter your phone number" />
+          <button class="btn btn-primary btn-lg" onclick="quickSubmit()">
+            Call Me Now →
+          </button>
+        </div>
       </div>
       <div class="cta-badges">
         <div class="cta-badge-item">Free Consultation</div>
@@ -1448,8 +1586,8 @@
       <div class="footer-inner">
         <div>© 2026 SoCal Remodel Quotes. All rights reserved.</div>
         <div class="footer-links">
-          <a href="#" onclick="return false;">Privacy Policy</a>
-          <a href="#" onclick="return false;">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
           <a href="tel:+13236895004">(323) 689-5004</a>
         </div>
       </div>
@@ -1520,65 +1658,32 @@
       if (!wasOpen) item.classList.add('open');
     }
 
-    // ── FORM SUBMIT HANDLER ──────────────────
-    async function handleFormSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('button[type="submit"]');
-
-      btn.innerHTML = '⏳ Sending…';
-      btn.disabled = true;
-
-      // Collect lead data
-      const fname    = form.fname    ? form.fname.value.trim()    : '';
-      const email    = form.email    ? form.email.value.trim()    : '';
-      const phone    = form.phone    ? form.phone.value.trim()    : '';
-      const service  = form.service  ? form.service.value.trim()  : '';
-      const budget   = form.budget   ? form.budget.value.trim()   : '';
-      const message  = form.message  ? form.message.value.trim()  : '';
-
-      try {
-        const response = await fetch('/api/leads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: fname,
-            email: email,
-            phone: phone,
-            project_type: service,
-            budget: budget,
-            message: message,
-          }),
-        });
-
-        if (!response.ok) {
-          const err = await response.json().catch(() => ({}));
-          throw new Error(err.error || 'Submission failed');
-        }
-
-        // Build thank-you URL with tracking params
-        const params = new URLSearchParams({
-          name: fname,
-          service: service,
-          ts: Date.now(),
-        });
-        window.location.href = 'thank-you.html?' + params.toString();
-
-      } catch (err) {
-        console.error('[handleFormSubmit]', err.message);
-        btn.innerHTML = '🚀 Get My Free Quote Now';
-        btn.disabled = false;
-        alert('Something went wrong submitting your request. Please try again or call us at (323) 689-5004.');
-      }
-    }
-
-    // ── QUICK CTA FORM ───────────────────────
-    function quickSubmit() {
+    // ── QUICK CTA FORM (FIXED) ───────────────────────
+    async function quickSubmit() {
       const phone = document.getElementById('cta-phone').value.trim();
       if (!phone) { document.getElementById('cta-phone').focus(); return; }
-      const params = new URLSearchParams({ phone, service: 'call-back', ts: Date.now() });
-      window.location.href = 'thank-you.html?' + params.toString();
+      try {
+        await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'Callback Request', email: 'no-email@socalremodelquotes.com', phone,
+            project_type: 'call-back', budget: '', message: 'Requested callback via bottom CTA' })
+        });
+      } catch (e) { console.error(e); }
+      window.location.href = 'thank-you.html?' + new URLSearchParams({ phone, service: 'call-back', ts: Date.now() });
     }
+
+    // ── ANALYTICS TRACKING HELPERS ───────────────────
+    // phone-call intent
+    document.querySelectorAll('a[href^="tel:"]').forEach(a =>
+      a.addEventListener('click', () => { if (window.fbq) fbq('track', 'Contact'); }));
+    // mid-funnel signal for Meta while Lead volume is low
+    let vcFired = false;
+    addEventListener('scroll', () => {
+      if (!vcFired && scrollY > document.body.scrollHeight * 0.4) {
+        vcFired = true; if (window.fbq) fbq('track', 'ViewContent');
+      }
+    }, { passive: true });
 
     // ── SCROLL ANIMATIONS ────────────────────
     const observer = new IntersectionObserver((entries) => {
