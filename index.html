@@ -964,6 +964,168 @@
     .bottom-form-card textarea { resize: vertical; min-height: 100px; }
 
     /* ============================
+       QUIZ FUNNEL
+    ============================ */
+    .quiz-funnel { background: #f8fafc; }
+    .quiz-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .quiz-left { padding-top: 12px; }
+    .quiz-title {
+      font-size: clamp(24px, 3.5vw, 34px);
+      color: #0b1329;
+      margin: 12px 0 14px;
+      line-height: 1.2;
+    }
+    .quiz-sub {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .quiz-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quiz-bullets li {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0b1329;
+      padding-left: 20px;
+      position: relative;
+    }
+    .quiz-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 8px; height: 8px;
+      background: #f97316;
+      border-radius: 50%;
+    }
+    /* Quiz card */
+    .quiz-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 32px rgba(11,19,41,.1);
+      border: 1px solid #e8edf4;
+    }
+    .quiz-progress-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .quiz-prog-bar {
+      flex: 1;
+      height: 5px;
+      background: #e8edf4;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .quiz-prog-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f97316, #ea580c);
+      border-radius: 99px;
+      transition: width .4s ease;
+    }
+    .quiz-prog-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+    .quiz-step { display: none; animation: quizIn .28s ease; }
+    .quiz-step.active { display: block; }
+    @keyframes quizIn { from { opacity:0; transform:translateX(10px); } to { opacity:1; transform:none; } }
+    .quiz-q {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: #0b1329;
+      margin-bottom: 14px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .quiz-opt {
+      min-height: 48px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      background: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0b1329;
+      cursor: pointer;
+      transition: all .15s;
+      padding: 8px 12px;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .quiz-opt:hover { border-color: #f97316; background: #fff7ed; }
+    .quiz-opt.q-selected { border-color: #f97316; background: #fff7ed; color: #c2410c; box-shadow: 0 0 0 3px rgba(249,115,22,.15); }
+    .quiz-opt-wide { grid-column: 1 / -1; }
+    /* Contact step */
+    .quiz-contact-fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+    .quiz-field label { display: block; font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 5px; }
+    .quiz-field input {
+      width: 100%; min-height: 48px; padding: 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 10px;
+      background: #f8fafc; color: #0f172a;
+      font-family: 'Inter', sans-serif; font-size: 16px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .quiz-field input:focus { border-color: #f97316; background: #fff; box-shadow: 0 0 0 3px rgba(249,115,22,.15); }
+    .quiz-submit-btn {
+      width: 100%; min-height: 54px;
+      background: #0b1329; color: #fff;
+      border: none; border-radius: 12px;
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: background .2s; letter-spacing: -0.01em;
+    }
+    .quiz-submit-btn:hover { background: #1e293b; }
+    .quiz-fine {
+      font-size: 12px; color: #94a3b8; text-align: center; margin-top: 10px;
+      font-family: 'Inter', sans-serif;
+    }
+    /* Mobile */
+    @media (max-width: 860px) {
+      .quiz-inner { grid-template-columns: 1fr; gap: 32px; }
+      .quiz-left { padding-top: 0; }
+      .quiz-opts { grid-template-columns: 1fr; }
+      .quiz-opt-wide { grid-column: auto; }
+    }
+
+    /* Final CTA simplified */
+    .cta-btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .cta-call-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+      letter-spacing: 0.01em;
+      transition: color .2s;
+    }
+    .cta-call-link:hover { color: #fff; }
+
+    /* ============================
        FINAL CTA / TWO-STEP FORM
     ============================ */
     .final-cta {
@@ -1222,13 +1384,13 @@
             </div>
             <span class="google-badge-text">4.9 &nbsp;&middot;&nbsp; 500+ Reviews</span>
         </div>
-        <div class="hero-eyebrow fade-up">SoCal's Kitchen & ADU Specialists</div>
+        <div class="hero-eyebrow fade-up">Licensed SoCal Remodeling Specialists</div>
         <h1 class="hero-title fade-up delay-1">
-          The Price We Quote Is<br />
-          <span class="highlight">the Price You Pay.</span>
+          Get a Real Remodel Estimate<br />
+          <span class="highlight">From a Licensed SoCal Team.</span>
         </h1>
         <p class="hero-desc fade-up delay-2">
-          No change orders. No last-minute surprises. SoCal's most trusted remodeling crew has completed 500+ projects and earned every one of its 4.9 stars by doing exactly what we say.
+          Planning a kitchen remodel, ADU, garage conversion, home addition, or full renovation? Get a realistic cost range, timeline guidance, and next-step recommendation before you commit.
         </p>
         <div class="hero-trust-pills fade-up delay-3">
           <div class="trust-pill"><span class="tp-check">✓</span>Fixed Price</div>
@@ -1421,6 +1583,119 @@
     </div>
   </section>
 
+  <!-- QUIZ FUNNEL -->
+  <section class="section quiz-funnel" id="quiz">
+    <div class="container">
+      <div class="quiz-inner">
+
+        <!-- Left: headline -->
+        <div class="quiz-left">
+          <span class="badge">2 Minutes</span>
+          <h2 class="quiz-title">Not sure what your project will cost?</h2>
+          <p class="quiz-sub">Answer 5 short questions and we'll match you with the right specialist and a realistic cost range within 24 hours. No sales pressure involved.</p>
+          <ul class="quiz-bullets">
+            <li>Kitchen remodels from $30K to $120K</li>
+            <li>ADU conversions from $80K to $250K</li>
+            <li>Home additions from $60K to $200K</li>
+          </ul>
+        </div>
+
+        <!-- Right: quiz card -->
+        <div class="quiz-card" id="quizCard">
+
+          <!-- Progress -->
+          <div class="quiz-progress-wrap">
+            <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="quizFill" style="width:20%"></div></div>
+            <span class="quiz-prog-label" id="quizProgLabel">Question 1 of 5</span>
+          </div>
+
+          <form id="quizForm" onsubmit="handleQuizSubmit(event)">
+
+            <!-- Q1 -->
+            <div class="quiz-step active" data-qs="1">
+              <p class="quiz-q">What type of project are you planning?</p>
+              <div class="quiz-opts">
+                <button type="button" class="quiz-opt" data-qf="q_service" data-qv="Kitchen Remodel">Kitchen Remodel</button>
+                <button type="button" class="quiz-opt" data-qf="q_service" data-qv="ADU / Garage Conversion">ADU / Garage Conversion</button>
+                <button type="button" class="quiz-opt" data-qf="q_service" data-qv="Home Addition">Home Addition</button>
+                <button type="button" class="quiz-opt" data-qf="q_service" data-qv="Whole Home Renovation">Whole Home Renovation</button>
+              </div>
+              <input type="hidden" name="q_service" required />
+            </div>
+
+            <!-- Q2 -->
+            <div class="quiz-step" data-qs="2">
+              <p class="quiz-q">What is your estimated budget?</p>
+              <div class="quiz-opts">
+                <button type="button" class="quiz-opt" data-qf="q_budget" data-qv="Under $50,000">Under $50K</button>
+                <button type="button" class="quiz-opt" data-qf="q_budget" data-qv="$50,000 to $100,000">$50K to $100K</button>
+                <button type="button" class="quiz-opt" data-qf="q_budget" data-qv="$100,000 to $200,000">$100K to $200K</button>
+                <button type="button" class="quiz-opt" data-qf="q_budget" data-qv="$200,000 or more">$200K or more</button>
+                <button type="button" class="quiz-opt quiz-opt-wide" data-qf="q_budget" data-qv="Not sure yet">Not sure yet</button>
+              </div>
+              <input type="hidden" name="q_budget" required />
+            </div>
+
+            <!-- Q3 -->
+            <div class="quiz-step" data-qs="3">
+              <p class="quiz-q">When are you hoping to start?</p>
+              <div class="quiz-opts">
+                <button type="button" class="quiz-opt" data-qf="q_timeline" data-qv="As soon as possible">As soon as possible</button>
+                <button type="button" class="quiz-opt" data-qf="q_timeline" data-qv="Within 1 to 3 months">Within 1 to 3 months</button>
+                <button type="button" class="quiz-opt" data-qf="q_timeline" data-qv="Within 3 to 6 months">Within 3 to 6 months</button>
+                <button type="button" class="quiz-opt quiz-opt-wide" data-qf="q_timeline" data-qv="6 months or more">6 months or more</button>
+              </div>
+              <input type="hidden" name="q_timeline" required />
+            </div>
+
+            <!-- Q4 -->
+            <div class="quiz-step" data-qs="4">
+              <p class="quiz-q">Have you already gotten other contractor quotes?</p>
+              <div class="quiz-opts">
+                <button type="button" class="quiz-opt" data-qf="q_quotes" data-qv="Yes, I have other quotes">Yes, I have quotes</button>
+                <button type="button" class="quiz-opt" data-qf="q_quotes" data-qv="No, this is my first inquiry">No, first inquiry</button>
+                <button type="button" class="quiz-opt quiz-opt-wide" data-qf="q_quotes" data-qv="Still researching">Still researching</button>
+              </div>
+              <input type="hidden" name="q_quotes" required />
+            </div>
+
+            <!-- Q5 -->
+            <div class="quiz-step" data-qs="5">
+              <p class="quiz-q">What matters most for this project?</p>
+              <div class="quiz-opts">
+                <button type="button" class="quiz-opt" data-qf="q_priority" data-qv="Staying on budget">Staying on budget</button>
+                <button type="button" class="quiz-opt" data-qf="q_priority" data-qv="Fastest completion">Fastest completion</button>
+                <button type="button" class="quiz-opt" data-qf="q_priority" data-qv="Highest quality finish">Highest quality finish</button>
+                <button type="button" class="quiz-opt quiz-opt-wide" data-qf="q_priority" data-qv="All three equally">All three equally</button>
+              </div>
+              <input type="hidden" name="q_priority" required />
+            </div>
+
+            <!-- Final: contact collection -->
+            <div class="quiz-step" data-qs="6">
+              <p class="quiz-q">Where should we send your cost estimate?</p>
+              <div class="quiz-contact-fields">
+                <div class="quiz-field">
+                  <label>Your Name</label>
+                  <input type="text" name="q_name" placeholder="Full name" autocomplete="name" required />
+                </div>
+                <div class="quiz-field">
+                  <label>Phone Number</label>
+                  <input type="tel" name="q_phone" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
+                </div>
+              </div>
+              <button type="submit" class="quiz-submit-btn" id="quizSubmitBtn">
+                Send My Cost Estimate &rarr;
+              </button>
+              <p class="quiz-fine">No pressure. A real specialist will call within 24 hours.</p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section class="section testimonials" id="reviews">
     <div class="container text-center">
@@ -1457,135 +1732,24 @@
     </div>
   </section>
 
-  <!-- FINAL CTA / TWO-STEP FORM -->
+  <!-- FINAL CTA -->
   <section class="final-cta" id="contact">
     <div class="container">
-
-      <!-- Section Header -->
       <div class="cta-header">
-        <span class="badge" style="background:rgba(249,115,22,0.15);color:#f97316;margin-bottom:16px;">Free Cost Review</span>
-        <h2>Get a Real Remodel Estimate From a Licensed SoCal Team</h2>
-        <p class="cta-subhead">Planning a kitchen remodel, ADU, garage conversion, home addition, or full renovation? Get a realistic cost range, timeline guidance, and next-step recommendation before you commit.</p>
+        <h2>Ready to Get Started?</h2>
+        <p class="cta-subhead">One conversation with a licensed SoCal remodeling specialist is all it takes. No pressure. No obligation. A real estimate within 24 hours.</p>
       </div>
-
-      <!-- Trust Grid -->
       <div class="cta-trust-grid">
         <div class="cta-trust-item"><span class="cta-check">✅</span>CA Licensed, Bonded &amp; Insured</div>
         <div class="cta-trust-item"><span class="cta-check">✅</span>500+ Projects Completed</div>
         <div class="cta-trust-item"><span class="cta-check">✅</span>Serving LA, Orange County &amp; San Diego</div>
         <div class="cta-trust-item"><span class="cta-check">✅</span>5-Year Workmanship Warranty</div>
       </div>
-
-      <!-- Two-Step Form Card -->
-      <div class="bottom-form-card" id="twoStepFormCard">
-
-        <!-- STEP 1: Contact Info -->
-        <div id="ctaStep1">
-          <div class="cta-form-label">Request Your Free Remodel Cost Review</div>
-          <form id="ctaForm1" onsubmit="handleCtaStep1(event)">
-            <div class="form-group">
-              <label>Name *</label>
-              <input type="text" name="fname" placeholder="Your full name" autocomplete="name" required />
-            </div>
-            <div class="form-group">
-              <label>Phone *</label>
-              <input type="tel" name="phone" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
-            </div>
-            <div class="form-group">
-              <label>City / ZIP *</label>
-              <input type="text" name="city" placeholder="Los Angeles, 90210" required />
-            </div>
-            <div class="form-group">
-              <label>Project Type *</label>
-              <select name="service" required>
-                <option value="" disabled selected>Select your project</option>
-                <option value="Kitchen Remodel">Kitchen Remodel</option>
-                <option value="ADU / Garage Conversion">ADU / Garage Conversion</option>
-                <option value="Home Addition">Home Addition</option>
-                <option value="Whole Home Renovation">Whole Home Renovation</option>
-                <option value="Other">Something Else</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block btn-lg" id="ctaStep1Btn">
-              Get My Free Estimate
-            </button>
-            <p class="cta-fine-print">No pressure. No obligation. A project specialist will contact you within 24 hours.</p>
-          </form>
-        </div>
-
-        <!-- STEP 2: Qualification Questions (hidden until Step 1 submitted) -->
-        <div id="ctaStep2" style="display:none;">
-          <div class="step2-header">
-            <div class="step2-icon">📋</div>
-            <h3>One More Step</h3>
-            <p>These 5 quick questions help us send you the most accurate cost range and connect you with the right specialist.</p>
-          </div>
-          <div class="step2-progress"><div class="step2-bar"></div></div>
-          <form id="ctaForm2" onsubmit="handleCtaStep2(event)">
-
-            <div class="q-block" data-q="1">
-              <label class="q-label">1 of 5 &mdash; What is your estimated budget?</label>
-              <div class="q-options">
-                <button type="button" class="q-opt" data-field="budget" data-value="Under $50,000">Under $50K</button>
-                <button type="button" class="q-opt" data-field="budget" data-value="$50,000 to $100,000">$50K to $100K</button>
-                <button type="button" class="q-opt" data-field="budget" data-value="$100,000 to $200,000">$100K to $200K</button>
-                <button type="button" class="q-opt" data-field="budget" data-value="$200,000 or more">$200K or more</button>
-                <button type="button" class="q-opt q-opt-wide" data-field="budget" data-value="Not sure yet">Not sure yet</button>
-              </div>
-              <input type="hidden" name="budget" required />
-            </div>
-
-            <div class="q-block" data-q="2">
-              <label class="q-label">2 of 5 &mdash; When are you hoping to start?</label>
-              <div class="q-options">
-                <button type="button" class="q-opt" data-field="timeline" data-value="As soon as possible">ASAP</button>
-                <button type="button" class="q-opt" data-field="timeline" data-value="Within 1 to 3 months">1 to 3 months</button>
-                <button type="button" class="q-opt" data-field="timeline" data-value="Within 3 to 6 months">3 to 6 months</button>
-                <button type="button" class="q-opt q-opt-wide" data-field="timeline" data-value="6 months or more">6 months or more</button>
-              </div>
-              <input type="hidden" name="timeline" required />
-            </div>
-
-            <div class="q-block" data-q="3">
-              <label class="q-label">3 of 5 &mdash; Do you currently own this property?</label>
-              <div class="q-options">
-                <button type="button" class="q-opt" data-field="ownership" data-value="Yes, I own it">Yes, I own it</button>
-                <button type="button" class="q-opt" data-field="ownership" data-value="It is a rental property">It's a rental</button>
-                <button type="button" class="q-opt q-opt-wide" data-field="ownership" data-value="In escrow or buying soon">In escrow / buying soon</button>
-              </div>
-              <input type="hidden" name="ownership" required />
-            </div>
-
-            <div class="q-block" data-q="4">
-              <label class="q-label">4 of 5 &mdash; Have you already gotten other contractor quotes?</label>
-              <div class="q-options">
-                <button type="button" class="q-opt" data-field="quotes" data-value="Yes, I have other quotes">Yes, I have quotes</button>
-                <button type="button" class="q-opt" data-field="quotes" data-value="No, this is my first inquiry">No, first inquiry</button>
-                <button type="button" class="q-opt q-opt-wide" data-field="quotes" data-value="Still researching options">Still researching</button>
-              </div>
-              <input type="hidden" name="quotes" required />
-            </div>
-
-            <div class="q-block" data-q="5">
-              <label class="q-label">5 of 5 &mdash; What matters most for this project?</label>
-              <div class="q-options">
-                <button type="button" class="q-opt" data-field="priority" data-value="Staying on budget">Staying on budget</button>
-                <button type="button" class="q-opt" data-field="priority" data-value="Fastest possible completion">Fastest completion</button>
-                <button type="button" class="q-opt" data-field="priority" data-value="Highest quality finish">Highest quality</button>
-                <button type="button" class="q-opt q-opt-wide" data-field="priority" data-value="All three equally">All three equally</button>
-              </div>
-              <input type="hidden" name="priority" required />
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block btn-lg" id="ctaStep2Btn" style="margin-top:24px;">
-              Complete My Request
-            </button>
-            <p class="cta-fine-print">Your answers help us send you the right specialist, not a generic sales call.</p>
-          </form>
-        </div>
-
-      </div><!-- /.bottom-form-card -->
-    </div><!-- /.container -->
+      <div class="cta-btn-group">
+        <a href="#lead-form" class="btn btn-primary btn-lg">Get My Free Estimate &rarr;</a>
+        <a href="tel:+13236895004" class="cta-call-link">(323) 689-5004 &nbsp;&middot;&nbsp; Call anytime</a>
+      </div>
+    </div>
   </section>
   <footer class="footer">
     <div class="container">
@@ -1842,6 +2006,83 @@
         }).catch(err => console.error('Call tracking error:', err));
       });
     });
+    // ── QUIZ FUNNEL ──────────────────────────────────────────────
+    (function() {
+      const TOTAL_Q = 5;
+      let currentQ = 1;
+      const quizData = {};
+
+      // Step navigation
+      function quizGoTo(n) {
+        document.querySelectorAll('.quiz-step').forEach(s =>
+          s.classList.toggle('active', parseInt(s.dataset.qs) === n)
+        );
+        currentQ = n;
+        const isContact = n > TOTAL_Q;
+        const label = isContact ? 'Almost done!' : `Question ${n} of ${TOTAL_Q}`;
+        document.getElementById('quizProgLabel').textContent = label;
+        document.getElementById('quizFill').style.width = (n / (TOTAL_Q + 1) * 100) + '%';
+        document.getElementById('quizCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Option click
+      document.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const field = btn.dataset.qf;
+          const val   = btn.dataset.qv;
+          // deselect siblings
+          btn.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('q-selected'));
+          btn.classList.add('q-selected');
+          // store hidden input
+          document.querySelector(`#quizForm input[name="${field}"]`).value = val;
+          quizData[field] = val;
+          // auto-advance after short delay
+          setTimeout(() => quizGoTo(currentQ + 1), 220);
+        });
+      });
+
+      // Final submit
+      window.handleQuizSubmit = async function(e) {
+        e.preventDefault();
+        const f   = e.target;
+        const btn = document.getElementById('quizSubmitBtn');
+        const name  = f.q_name.value.trim();
+        const phone = f.q_phone.value.trim();
+        if (!name || !phone) return;
+
+        btn.textContent = 'Sending…'; btn.disabled = true;
+
+        const message = [
+          `Project: ${quizData.q_service || ''}`,
+          `Budget: ${quizData.q_budget || ''}`,
+          `Timeline: ${quizData.q_timeline || ''}`,
+          `Other Quotes: ${quizData.q_quotes || ''}`,
+          `Priority: ${quizData.q_priority || ''}`,
+          `Source: Quiz Funnel`
+        ].join('\n');
+
+        try {
+          await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name,
+              phone,
+              email: 'quiz@socalremodelquotes.com',
+              project_type: quizData.q_service || 'Quiz Submission',
+              budget: quizData.q_budget || 'Unknown',
+              message
+            })
+          });
+        } catch (_) {}
+
+        if (window.fbq) fbq('track', 'Lead');
+        window.location.href = 'thank-you.html?' + new URLSearchParams({
+          name, service: quizData.q_service || 'Project', ts: Date.now()
+        });
+      };
+    })();
+
     // mid-funnel signal for Meta while Lead volume is low
     let vcFired = false;
     addEventListener('scroll', () => {
