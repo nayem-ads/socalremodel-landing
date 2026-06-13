@@ -319,6 +319,166 @@
         letter-spacing: 0.08em;
       }
     }
+
+    /* ── QUALIFICATION QUIZ STYLES ── */
+    .qual-widget {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      animation: fadeIn .4s ease;
+      display: none; /* Shown dynamically via JS if lead_id exists */
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .qual-header {
+      margin-bottom: 20px;
+    }
+    .qual-title-main {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .qual-sub-main {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+    .qual-progress-bar {
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .qual-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 20%;
+      transition: width .3s ease;
+    }
+    .qual-step-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 20px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .qual-step {
+      display: none;
+    }
+    .qual-step.active {
+      display: block;
+      animation: slideInRight .3s ease both;
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(15px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .qual-q {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+    .qual-opts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .qual-opt {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: left;
+      cursor: pointer;
+      transition: all .15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .qual-opt:hover {
+      border-color: var(--accent);
+      background: #fff7ed;
+    }
+    .qual-opt::after {
+      content: '→';
+      opacity: 0;
+      transform: translateX(-5px);
+      transition: all .15s ease;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .qual-opt:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .qual-input-group {
+      margin-bottom: 20px;
+    }
+    .qual-input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: all .2s;
+      box-sizing: border-box;
+    }
+    .qual-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    }
+    .qual-submit {
+      width: 100%;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .qual-submit:hover {
+      background: #1e293b;
+    }
+    .qual-skip {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #64748b;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      font-weight: 600;
+    }
+    .qual-skip:hover {
+      color: var(--navy);
+    }
   </style>
 </head>
 <body>
@@ -352,92 +512,171 @@
       <!-- CARD BODY -->
       <div class="ty-body">
 
-        <!-- Dynamic Greeting -->
-        <p class="ty-name-greeting" id="ty-greeting">Thanks for reaching out! 🎉</p>
-        <p class="ty-summary" id="ty-summary">
-          A licensed SoCal remodeling specialist will contact you within <strong>24 hours</strong> — usually same day — to discuss your project and schedule your free consultation.
-        </p>
-
-        <!-- Countdown to callback -->
-        <div class="countdown-box">
-          <p>🕐 Estimated callback in:</p>
-          <div class="countdown-num" id="countdown-display">2:00:00</div>
-          <div class="countdown-lbl">hours — during business hours (Mon–Sat, 7am–7pm PST)</div>
-        </div>
-        <p style="text-align: center; font-size: 14px; font-weight: bold; color: #f97316; margin: -16px 0 24px 0;">Save our number so you don't miss the call: (323) 689-5004</p>
-
-        <!-- Next Steps -->
-        <div class="next-steps-title">What Happens Next</div>
-        <ul class="next-steps">
-          <li>
-            <div class="step-badge">1</div>
-            <div class="step-info">
-              <h4>Check Your Email</h4>
-              <p>You'll receive a confirmation email with your request details and our contact info.</p>
-            </div>
-          </li>
-          <li>
-            <div class="step-badge">2</div>
-            <div class="step-info">
-              <h4>Expect Our Call</h4>
-              <p>A local specialist will call you within 24 hours to learn more about your vision.</p>
-            </div>
-          </li>
-          <li>
-            <div class="step-badge">3</div>
-            <div class="step-info">
-              <h4>Free In-Home Consultation</h4>
-              <p>We'll visit your home, take measurements, and discuss design options — at zero cost.</p>
-            </div>
-          </li>
-          <li>
-            <div class="step-badge">4</div>
-            <div class="step-info">
-              <h4>Receive Your Detailed Quote</h4>
-              <p>Get an itemized estimate with no hidden fees. You decide if you want to move forward.</p>
-            </div>
-          </li>
-        </ul>
-
-        <!-- CTA Buttons -->
-        <div class="ty-cta-group">
-          <a href="tel:+13236895004" class="ty-btn ty-btn-primary" id="call-now-btn">
-            📞 Call Us Now
-          </a>
-          <a href="index.html" class="ty-btn ty-btn-secondary">
-            ← Back to Home
-          </a>
-        </div>
-
-        <!-- Lead Data Debug Panel (admin view, hidden from users) -->
-        <div class="tracking-debug" id="lead-tracking-panel" style="display:none;">
-          <h5>📊 Lead Tracking Data</h5>
-          <div id="tracking-data-rows"></div>
-        </div>
-
-        <!-- Referral Box -->
-        <div class="referral-box">
-          <h4>Know Someone Who Needs a Remodel?</h4>
-          <p>Share SoCal Remodel Quotes with friends and family in Southern California.</p>
-          <div class="share-buttons">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn fb">
-              👍 Share on Facebook
-            </a>
-            <a href="https://wa.me/?text=Check%20out%20SoCal%20Remodel%20Quotes%20for%20free%20home%20remodeling%20estimates!%20https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn wa">
-              💬 Share on WhatsApp
-            </a>
-            <button class="share-btn copy" onclick="copyLink()">
-              🔗 Copy Link
-            </button>
+        <!-- QUALIFICATION QUIZ FUNNEL -->
+        <div id="qual-container" class="qual-widget">
+          <div class="qual-header">
+            <h3 class="qual-title-main">Help Us Tailor Your Estimate</h3>
+            <p class="qual-sub-main">To help us prepare a realistic cost range and match you with the right specialist, please answer 5 quick questions:</p>
           </div>
+
+          <!-- Progress -->
+          <div class="qual-progress-bar">
+            <div class="qual-progress-fill" id="qualFill" style="width: 20%"></div>
+          </div>
+          <span class="qual-step-label" id="qualStepLabel">Question 1 of 5</span>
+
+          <form id="qualForm" onsubmit="handleQualSubmit(event)">
+            <!-- Q1: Property Ownership -->
+            <div class="qual-step active" data-qs="1">
+              <p class="qual-q">Do you own the property you are planning to remodel?</p>
+              <div class="qual-opts">
+                <button type="button" class="qual-opt" data-qf="property_owner" data-qv="Yes, I am the owner">Yes, I am the owner</button>
+                <button type="button" class="qual-opt" data-qf="property_owner" data-qv="No, I am a tenant / renter">No, I am a tenant / renter</button>
+                <button type="button" class="qual-opt" data-qf="property_owner" data-qv="Looking to purchase">Looking to purchase</button>
+              </div>
+              <input type="hidden" name="property_owner" required />
+            </div>
+
+            <!-- Q2: Estimated Budget -->
+            <div class="qual-step" data-qs="2">
+              <p class="qual-q">What is your estimated budget for this project?</p>
+              <div class="qual-opts">
+                <button type="button" class="qual-opt" data-qf="budget" data-qv="Under $50,000">Under $50,000</button>
+                <button type="button" class="qual-opt" data-qf="budget" data-qv="$50,000 to $100,000">$50,000 to $100,000</button>
+                <button type="button" class="qual-opt" data-qf="budget" data-qv="$100,000 to $200,000">$100,000 to $200,000</button>
+                <button type="button" class="qual-opt" data-qf="budget" data-qv="$200,000 or more">$200,000 or more</button>
+                <button type="button" class="qual-opt" data-qf="budget" data-qv="Not sure yet">Not sure yet</button>
+              </div>
+              <input type="hidden" name="budget" required />
+            </div>
+
+            <!-- Q3: Project Timeline -->
+            <div class="qual-step" data-qs="3">
+              <p class="qual-q">When are you hoping to start construction?</p>
+              <div class="qual-opts">
+                <button type="button" class="qual-opt" data-qf="timeline" data-qv="As soon as possible">As soon as possible</button>
+                <button type="button" class="qual-opt" data-qf="timeline" data-qv="Within 1 to 3 months">Within 1 to 3 months</button>
+                <button type="button" class="qual-opt" data-qf="timeline" data-qv="Within 3 to 6 months">Within 3 to 6 months</button>
+                <button type="button" class="qual-opt" data-qf="timeline" data-qv="6 months or more / Just researching">6 months or more / Just researching</button>
+              </div>
+              <input type="hidden" name="timeline" required />
+            </div>
+
+            <!-- Q4: Other Contractor Quotes -->
+            <div class="qual-step" data-qs="4">
+              <p class="qual-q">Have you already gotten other contractor quotes?</p>
+              <div class="qual-opts">
+                <button type="button" class="qual-opt" data-qf="other_quotes" data-qv="Yes, I have other quotes">Yes, I have other quotes</button>
+                <button type="button" class="qual-opt" data-qf="other_quotes" data-qv="No, this is my first inquiry">No, this is my first inquiry</button>
+                <button type="button" class="qual-opt" data-qf="other_quotes" data-qv="Still researching options">Still researching options</button>
+              </div>
+              <input type="hidden" name="other_quotes" required />
+            </div>
+
+            <!-- Q5: Email Address -->
+            <div class="qual-step" data-qs="5">
+              <p class="qual-q">Where should we send your detailed cost review?</p>
+              <div class="qual-input-group">
+                <input type="email" name="email" id="qual-email" class="qual-input" placeholder="name@domain.com" required />
+              </div>
+              <button type="submit" class="qual-submit" id="qualSubmitBtn">
+                Get My Tailored Estimate &rarr;
+              </button>
+            </div>
+          </form>
+
+          <button type="button" class="qual-skip" onclick="skipQualification()">Skip questionnaire &rarr;</button>
         </div>
 
-        <!-- Trust Row -->
-        <div class="ty-trust">
-          <div class="ty-trust-item"><span class="ico">🔒</span> Your data is secure</div>
-          <div class="ty-trust-item"><span class="ico">✅</span> Licensed & Insured</div>
-          <div class="ty-trust-item"><span class="ico">⭐</span> 4.9/5 Rating</div>
-          <div class="ty-trust-item"><span class="ico">🚫</span> No spam, ever</div>
+        <!-- STANDARD THANK YOU DETAILS (Toggled by JS) -->
+        <div id="thank-you-details">
+          <!-- Dynamic Greeting -->
+          <p class="ty-name-greeting" id="ty-greeting">Thanks for reaching out! 🎉</p>
+          <p class="ty-summary" id="ty-summary">
+            A licensed SoCal remodeling specialist will contact you within <strong>24 hours</strong> — usually same day — to discuss your project and schedule your free consultation.
+          </p>
+
+          <!-- Countdown to callback -->
+          <div class="countdown-box">
+            <p>🕐 Estimated callback in:</p>
+            <div class="countdown-num" id="countdown-display">2:00:00</div>
+            <div class="countdown-lbl">hours — during business hours (Mon–Sat, 7am–7pm PST)</div>
+          </div>
+          <p style="text-align: center; font-size: 14px; font-weight: bold; color: #f97316; margin: -16px 0 24px 0;">Save our number so you don't miss the call: (323) 689-5004</p>
+
+          <!-- Next Steps -->
+          <div class="next-steps-title">What Happens Next</div>
+          <ul class="next-steps">
+            <li>
+              <div class="step-badge">1</div>
+              <div class="step-info">
+                <h4>Check Your Email</h4>
+                <p>You'll receive a confirmation email with your request details and our contact info.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-badge">2</div>
+              <div class="step-info">
+                <h4>Expect Our Call</h4>
+                <p>A local specialist will call you within 24 hours to learn more about your vision.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-badge">3</div>
+              <div class="step-info">
+                <h4>Free In-Home Consultation</h4>
+                <p>We'll visit your home, take measurements, and discuss design options — at zero cost.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-badge">4</div>
+              <div class="step-info">
+                <h4>Receive Your Detailed Quote</h4>
+                <p>Get an itemized estimate with no hidden fees. You decide if you want to move forward.</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- CTA Buttons -->
+          <div class="ty-cta-group">
+            <a href="tel:+13236895004" class="ty-btn ty-btn-primary" id="call-now-btn">
+              📞 Call Us Now
+            </a>
+            <a href="index.html" class="ty-btn ty-btn-secondary">
+              ← Back to Home
+            </a>
+          </div>
+
+          <!-- Lead Data Debug Panel (admin view, hidden from users) -->
+          <div class="tracking-debug" id="lead-tracking-panel" style="display:none;">
+            <h5>📊 Lead Tracking Data</h5>
+            <div id="tracking-data-rows"></div>
+          </div>
+
+          <!-- Referral Box -->
+          <div class="referral-box">
+            <h4>Know Someone Who Needs a Remodel?</h4>
+            <p>Share SoCal Remodel Quotes with friends and family in Southern California.</p>
+            <div class="share-buttons">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn fb">
+                👍 Share on Facebook
+              </a>
+              <a href="https://wa.me/?text=Check%20out%20SoCal%20Remodel%20Quotes%20for%20free%20home%20remodeling%20estimates!%20https://www.socalremodelquotes.com" target="_blank" rel="noopener" class="share-btn wa">
+                💬 Share on WhatsApp
+              </a>
+              <button class="share-btn copy" onclick="copyLink()">
+                🔗 Copy Link
+              </button>
+            </div>
+          </div>
+
+          <!-- Trust Row -->
+          <div class="ty-trust">
+            <div class="ty-trust-item"><span class="ico">🔒</span> Your data is secure</div>
+            <div class="ty-trust-item"><span class="ico">✅</span> Licensed & Insured</div>
+            <div class="ty-trust-item"><span class="ico">⭐</span> 4.9/5 Rating</div>
+            <div class="ty-trust-item"><span class="ico">🚫</span> No spam, ever</div>
+          </div>
         </div>
 
       </div>
@@ -453,12 +692,86 @@
        JAVASCRIPT
   ============================ -->
   <script>
-    // ── PARSE URL PARAMS ─────────────────────────
+    // ── PARSE URL PARAMS & TOGGLE QUIZ ─────────────────────────
     const params = new URLSearchParams(window.location.search);
+    const leadId      = params.get('lead_id') || '';
     const leadName    = params.get('name')    || '';
     const leadService = params.get('service') || '';
     const leadPhone   = params.get('phone')   || '';
     const leadTs      = params.get('ts')      || Date.now();
+
+    const qualContainer = document.getElementById('qual-container');
+    const tyDetails = document.getElementById('thank-you-details');
+
+    if (leadId) {
+      qualContainer.style.display = 'block';
+      tyDetails.style.display = 'none';
+    } else {
+      qualContainer.style.display = 'none';
+      tyDetails.style.display = 'block';
+    }
+
+    // ── QUALIFICATION QUIZ LOGIC ──────────────────────────────
+    const TOTAL_STEPS = 5;
+    let currentStep = 1;
+    const qualData = {};
+
+    function qualGoTo(step) {
+      if (step > TOTAL_STEPS) return;
+      document.querySelectorAll('.qual-step').forEach(el => {
+        el.classList.toggle('active', parseInt(el.dataset.qs) === step);
+      });
+      currentStep = step;
+      document.getElementById('qualStepLabel').textContent = `Question ${step} of ${TOTAL_STEPS}`;
+      document.getElementById('qualFill').style.width = (step / TOTAL_STEPS * 100) + '%';
+    }
+
+    // Option clicks
+    document.querySelectorAll('.qual-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const field = btn.dataset.qf;
+        const val = btn.dataset.qv;
+        qualData[field] = val;
+        // set value in hidden input
+        const input = document.querySelector(`#qualForm input[name="${field}"]`);
+        if (input) input.value = val;
+        
+        // Auto advance
+        if (currentStep < TOTAL_STEPS) {
+          qualGoTo(currentStep + 1);
+        }
+      });
+    });
+
+    // Skip questionnaire
+    window.skipQualification = function() {
+      qualContainer.style.display = 'none';
+      tyDetails.style.display = 'block';
+    };
+
+    // Form submit
+    window.handleQualSubmit = async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('qualSubmitBtn');
+      btn.textContent = 'Saving…';
+      btn.disabled = true;
+
+      qualData.email = document.getElementById('qual-email').value.trim();
+
+      try {
+        await fetch(`/api/leads/${leadId}/qualify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(qualData)
+        });
+      } catch (err) {
+        console.error('Failed to submit qualification:', err);
+      }
+
+      // Proceed to thank you details regardless of success/error
+      qualContainer.style.display = 'none';
+      tyDetails.style.display = 'block';
+    };
 
     // ── PERSONALIZE GREETING ─────────────────────
     if (leadName) {

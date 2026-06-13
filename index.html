@@ -1696,23 +1696,16 @@
               <input type="hidden" name="q_priority" required />
             </div>
 
-            <!-- Final: contact collection -->
+            <!-- Final Step: scroll to contact form -->
             <div class="quiz-step" data-qs="6">
-              <p class="quiz-q">Where should we send your cost estimate?</p>
-              <div class="quiz-contact-fields">
-                <div class="quiz-field">
-                  <label>Your Name</label>
-                  <input type="text" name="q_name" placeholder="Full name" autocomplete="name" required />
-                </div>
-                <div class="quiz-field">
-                  <label>Phone Number</label>
-                  <input type="tel" name="q_phone" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
-                </div>
-              </div>
-              <button type="submit" class="quiz-submit-btn" id="quizSubmitBtn">
-                Send My Cost Estimate &rarr;
+              <p class="quiz-q">Your preferences have been noted!</p>
+              <p style="font-size: 15px; color: #334155; margin-bottom: 24px; line-height: 1.6; text-align: left;">
+                We have saved your design preferences. To request your official remodel cost review, please complete our quick 4-field form at the top of the page.
+              </p>
+              <button type="button" class="quiz-submit-btn" onclick="scrollToHeroForm()" id="quizScrollBtn">
+                Go to Request Form &rarr;
               </button>
-              <p class="quiz-fine">No pressure. A real specialist will call within 24 hours.</p>
+              <p class="quiz-fine">No pressure. No obligation. A project specialist will contact you within 24 hours.</p>
             </div>
 
           </form>
@@ -2061,50 +2054,30 @@
           // store hidden input
           document.querySelector(`#quizForm input[name="${field}"]`).value = val;
           quizData[field] = val;
+
+          // Sync with hero form select
+          if (field === 'q_service') {
+            const selectEl = document.getElementById('hf-service');
+            if (selectEl) {
+              selectEl.value = val;
+            }
+          }
+
           // auto-advance after short delay
           setTimeout(() => quizGoTo(currentQ + 1), 220);
         });
       });
 
-      // Final submit
-      window.handleQuizSubmit = async function(e) {
-        e.preventDefault();
-        const f   = e.target;
-        const btn = document.getElementById('quizSubmitBtn');
-        const name  = f.q_name.value.trim();
-        const phone = f.q_phone.value.trim();
-        if (!name || !phone) return;
-
-        btn.textContent = 'Sending…'; btn.disabled = true;
-
-        const message = [
-          `Project: ${quizData.q_service || ''}`,
-          `Budget: ${quizData.q_budget || ''}`,
-          `Timeline: ${quizData.q_timeline || ''}`,
-          `Other Quotes: ${quizData.q_quotes || ''}`,
-          `Priority: ${quizData.q_priority || ''}`,
-          `Source: Quiz Funnel`
-        ].join('\n');
-
-        try {
-          await fetch('/api/leads', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name,
-              phone,
-              email: 'quiz@socalremodelquotes.com',
-              project_type: quizData.q_service || 'Quiz Submission',
-              budget: quizData.q_budget || 'Unknown',
-              message
-            })
-          });
-        } catch (_) {}
-
-        if (window.fbq) fbq('track', 'Lead');
-        window.location.href = 'thank-you.html?' + new URLSearchParams({
-          name, service: quizData.q_service || 'Project', ts: Date.now()
-        });
+      // Scroll to hero contact form
+      window.scrollToHeroForm = function() {
+        const formEl = document.getElementById('lead-form');
+        if (formEl) {
+          formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const nameInput = document.getElementById('hf-name');
+          if (nameInput) {
+            setTimeout(() => nameInput.focus(), 800);
+          }
+        }
       };
     })();
 
@@ -2144,21 +2117,27 @@
         message: `Zip Code: ${zip}\nSource: Hero Contact Form`
       };
 
+      let leadId = '';
       try {
         const r = await fetch('/api/leads', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-        if (!r.ok) throw new Error('server');
+        if (r.ok) {
+          const resData = await r.json();
+          leadId = resData.id || '';
+        }
       } catch (_) {
         // Fail silently — still redirect so lead is not lost
       }
 
       if (window.fbq) fbq('track', 'Lead');
-      window.location.href = 'thank-you.html?' + new URLSearchParams({
+      const params = new URLSearchParams({
         name, service, ts: Date.now()
       });
+      if (leadId) params.append('lead_id', leadId);
+      window.location.href = 'thank-you.html?' + params.toString();
     }
 
     // mid-funnel signal for Meta while Lead volume is low
