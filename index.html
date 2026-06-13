@@ -1126,6 +1126,76 @@
     .cta-call-link:hover { color: #fff; }
 
     /* ============================
+       HERO CONTACT FORM
+    ============================ */
+    .hf-field { margin-bottom: 13px; }
+    .hf-field label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 5px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+    .hf-field input,
+    .hf-field select {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      background: #f8fafc;
+      color: #0f172a;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .hf-field input::placeholder { color: #94a3b8; }
+    .hf-field input:focus,
+    .hf-field select:focus {
+      border-color: #f97316;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(249,115,22,.12);
+    }
+    .hf-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .hf-submit {
+      width: 100%;
+      min-height: 54px;
+      background: #0b1329;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      letter-spacing: -0.01em;
+      margin-top: 6px;
+    }
+    .hf-submit:hover { background: #1e293b; }
+    .hf-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .hf-fine {
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ============================
        FINAL CTA / TWO-STEP FORM
     ============================ */
     .final-cta {
@@ -1365,67 +1435,59 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-inner container">
-      <!-- FORM FIRST in DOM = top on mobile -->
+      <!-- CONTACT FORM — first in DOM → top on mobile, right on desktop -->
       <div id="lead-form" class="hero-form-card fade-up" style="order:2;">
         <div class="form-badge">Free &amp; No-Obligation</div>
-        <h3>See What Your Remodel Will Cost</h3>
-        <p class="form-sub">Answer 3 quick questions and get a real estimate in 24 hours.</p>
-        <div class="ms-progress"><div class="ms-bar" id="msBar"></div><span id="msLabel">Step 1 of 3</span></div>
-        <form id="mainLeadForm" onsubmit="handleFormSubmit(event)">
-          <div class="ms-step active" data-step="1">
-            <p class="ms-q">What are you planning?</p>
-            <div class="ms-grid">
-              <button type="button" class="ms-opt" data-field="service" data-value="Kitchen Remodel">Kitchen Remodel</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="ADU / Garage Conversion">ADU / Garage</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="Home Addition">Home Addition</button>
-              <button type="button" class="ms-opt" data-field="service" data-value="Whole Home Renovation">Full Renovation</button>
-              <button type="button" class="ms-opt ms-wide" data-field="service" data-value="Other">Other Project</button>
-            </div>
+        <h3>Request Your Free Estimate</h3>
+        <p class="form-sub">A licensed SoCal specialist will contact you within 24 hours.</p>
+        <form id="mainLeadForm" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="hf-field">
+            <label for="hf-name">Full Name</label>
+            <input id="hf-name" name="fname" type="text" placeholder="Your full name" autocomplete="name" required />
           </div>
-          <div class="ms-step" data-step="2">
-            <p class="ms-q">What is your project budget?</p>
-            <div class="ms-grid">
-              <button type="button" class="ms-opt" data-field="budget" data-value="Under $30,000">Under $30K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$30k - $60k">$30K to $60K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$60k - $100k">$60K to $100K</button>
-              <button type="button" class="ms-opt" data-field="budget" data-value="$100k+">$100K+</button>
-            </div>
-            <button type="button" class="ms-back" onclick="msGo(1)">&larr; Back</button>
+          <div class="hf-field">
+            <label for="hf-phone">Phone Number</label>
+            <input id="hf-phone" name="phone" type="tel" placeholder="(323) 555-0000" autocomplete="tel" inputmode="tel" required />
           </div>
-          <div class="ms-step" data-step="3">
-            <p class="ms-q">Where should we send your quote?</p>
-            <label>Name *</label>
-            <input name="fname" type="text" placeholder="Full name" required>
-            <label>Phone *</label>
-            <input name="phone" type="tel" placeholder="(323) 555-0000" required>
-            <label>Email (optional)</label>
-            <input name="email" type="email" placeholder="your@email.com">
-            <button type="submit" class="btn-submit">Send My Estimate Request &rarr;</button>
-            <p class="ms-secure">Your information is private and never shared.</p>
-            <button type="button" class="ms-back" onclick="msGo(2)">&larr; Back</button>
+          <div class="hf-field">
+            <label for="hf-zip">Zip Code</label>
+            <input id="hf-zip" name="zip" type="text" placeholder="90210" inputmode="numeric" maxlength="5" required />
           </div>
-          <input type="hidden" name="service"><input type="hidden" name="budget">
+          <div class="hf-field">
+            <label for="hf-service">Project Type</label>
+            <select id="hf-service" name="service" required>
+              <option value="" disabled selected>Select your project</option>
+              <option value="Kitchen Remodel">Kitchen Remodel</option>
+              <option value="ADU / Garage Conversion">ADU / Garage Conversion</option>
+              <option value="Home Addition">Home Addition</option>
+              <option value="Whole Home Renovation">Whole Home Renovation</option>
+              <option value="Other">Something Else</option>
+            </select>
+          </div>
+          <button type="submit" class="hf-submit" id="heroFormBtn">
+            Get My Free Estimate &rarr;
+          </button>
+          <p class="hf-fine">No pressure. No obligation. We respond within 24 hours.</p>
         </form>
       </div>
 
-      <!-- HERO CONTENT — order:1 keeps it LEFT on desktop, bottom on mobile -->
+      <!-- HERO CONTENT — order:1 = left on desktop, below form on mobile -->
       <div class="hero-content" style="order:1;">
-        <!-- Google Trust Badge -->
         <div class="google-badge fade-up">
-            <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-            </svg>
-            <div class="google-badge-stars">
-              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="google-badge-text">4.9 &nbsp;&middot;&nbsp; 500+ Reviews</span>
+          <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <div class="google-badge-stars">
+            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="google-badge-text">4.9 &nbsp;&middot;&nbsp; 500+ Reviews</span>
         </div>
         <div class="hero-eyebrow fade-up">Licensed SoCal Remodeling Specialists</div>
         <h1 class="hero-title fade-up delay-1">
@@ -1436,58 +1498,13 @@
           Planning a kitchen remodel, ADU, garage conversion, home addition, or full renovation? Get a realistic cost range, timeline guidance, and next-step recommendation before you commit.
         </p>
         <div class="hero-trust-pills fade-up delay-3">
-          <div class="trust-pill"><span class="tp-check">✓</span>Fixed Price</div>
-          <div class="trust-pill"><span class="tp-check">✓</span>Free Design Visit</div>
-          <div class="trust-pill"><span class="tp-check">✓</span>5-Year Warranty</div>
+          <div class="trust-pill"><span class="tp-check">&#10003;</span>Fixed Price</div>
+          <div class="trust-pill"><span class="tp-check">&#10003;</span>Free Design Visit</div>
+          <div class="trust-pill"><span class="tp-check">&#10003;</span>5-Year Warranty</div>
         </div>
       </div>
 
-      <div id="lead-form" class="hero-form-card fade-up delay-4">
-        <div class="form-badge">Free & No-Obligation</div>
-        <h3>See What Your Remodel Will Cost</h3>
-        <p class="form-sub">Answer 3 quick questions and get a real estimate in 24 hours.</p>
-        <div class="ms-progress"><div class="ms-bar" id="msBar"></div><span id="msLabel">Step 1 of 3</span></div>
-
-      <style>
-      .ms-progress{position:relative;height:5px;background:#e8edf4;border-radius:99px;margin:14px 0 20px}
-      .ms-bar{height:100%;width:33.3%;background:linear-gradient(90deg,#f97316,#fb923c);border-radius:99px;transition:width .35s ease}
-      .ms-step{display:none}.ms-step.active{display:block;animation:msIn .3s ease}
-      @keyframes msIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
-      .ms-q{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:#0b1329;margin:14px 0 6px;letter-spacing:-0.01em;line-height:1.3}
-      .ms-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-      .ms-opt{min-height:52px;border:1.5px solid #e2e8f0;border-radius:10px;background:#fff;font-size:14px;font-weight:600;color:#0b1329;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;letter-spacing:0}
-      .ms-opt:hover{border-color:#f97316;background:#fff7ed}
-      .ms-opt.selected{border-color:#f97316;background:#fff7ed;box-shadow:0 0 0 3px rgba(249,115,22,.15)}
-      .ms-back{background:none;border:none;color:#94a3b8;font-size:13px;margin-top:14px;cursor:pointer;text-decoration:none;font-family:'Inter',sans-serif;}
-      .ms-back:hover{color:#64748b;}
-      .btn-submit{width:100%;min-height:56px;font-size:17px;font-weight:700;font-family:'Inter',sans-serif;color:#fff;background:#0b1329;border:none;border-radius:12px;margin-top:18px;cursor:pointer;letter-spacing:-0.01em;transition:background .2s;}
-      .btn-submit:hover{background:#1e293b;}
-      .ms-secure{font-size:12px;color:#94a3b8;text-align:center;margin-top:10px;font-family:'Inter',sans-serif;}
-      </style>
-      <script>
-      function msGo(n){
-        document.querySelectorAll('.ms-step').forEach(s=>s.classList.toggle('active', s.dataset.step==n));
-        document.getElementById('msBar').style.width=(n*33.33)+'%';
-        document.getElementById('msLabel').textContent='Step '+n+' of 3';
-      }
-      document.querySelectorAll('.ms-opt').forEach(btn=>btn.addEventListener('click',()=>{
-        const f=btn.dataset.field; document.querySelector('input[name='+f+']').value=btn.dataset.value;
-        btn.parentElement.querySelectorAll('.ms-opt').forEach(b=>b.classList.remove('selected'));
-        btn.classList.add('selected'); setTimeout(()=>msGo(f==='service'?2:3),180);
-      }));
-      window.setStepService=function(v){
-        document.querySelector('input[name=service]').value=v;
-        msGo(2);
-      };
-      async function handleFormSubmit(e){
-        e.preventDefault(); const f=e.target,btn=f.querySelector('.btn-submit');
-        btn.textContent='Sending...'; btn.disabled=true;
-        const data={name:f.fname.value, email:f.email.value, phone:f.phone.value, project_type:f.service.value, budget:f.budget.value};
-        await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-        location.href='thank-you.html';
-      }
-      </script>
-    </div>
+    </div><!-- /.hero-inner -->
   </section>
 
   <!-- STATS -->
@@ -2090,6 +2107,59 @@
         });
       };
     })();
+
+    // ── HERO CONTACT FORM ────────────────────────────────────────
+    // Phone formatter
+    document.getElementById('hf-phone') && document.getElementById('hf-phone').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length <= 3) this.value = v;
+      else if (v.length <= 6) this.value = '(' + v.slice(0,3) + ') ' + v.slice(3);
+      else this.value = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+    });
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const f   = e.target;
+      const btn = document.getElementById('heroFormBtn');
+      const name    = f.fname.value.trim();
+      const phone   = f.phone.value.trim();
+      const zip     = f.zip.value.trim();
+      const service = f.service.value;
+
+      if (!name || !phone || !zip || !service) {
+        // Show native browser validation
+        f.reportValidity && f.reportValidity();
+        return;
+      }
+
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const payload = {
+        name,
+        phone,
+        email: 'form@socalremodelquotes.com',
+        project_type: service,
+        budget: 'Not specified',
+        message: `Zip Code: ${zip}\nSource: Hero Contact Form`
+      };
+
+      try {
+        const r = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!r.ok) throw new Error('server');
+      } catch (_) {
+        // Fail silently — still redirect so lead is not lost
+      }
+
+      if (window.fbq) fbq('track', 'Lead');
+      window.location.href = 'thank-you.html?' + new URLSearchParams({
+        name, service, ts: Date.now()
+      });
+    }
 
     // mid-funnel signal for Meta while Lead volume is low
     let vcFired = false;
