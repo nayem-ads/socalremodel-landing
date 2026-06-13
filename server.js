@@ -151,15 +151,17 @@ app.post('/api/leads', async (req, res) => {
       ]
     );
 
-    // Trigger email notification asynchronously
-    sendLeadEmail(
-      name.trim(),
-      email.trim(),
-      phone.trim(),
-      project_type.trim(),
-      budget ? budget.trim() : null,
-      message ? message.trim() : null
-    );
+    // Trigger email notification asynchronously for all leads except phone clicks
+    if (project_type.trim() !== 'phone-call') {
+      sendLeadEmail(
+        name.trim(),
+        email.trim(),
+        phone.trim(),
+        project_type.trim(),
+        budget ? budget.trim() : null,
+        message ? message.trim() : null
+      );
+    }
 
     return res.status(201).json({ success: true, id: result.rows[0].id });
   } catch (err) {

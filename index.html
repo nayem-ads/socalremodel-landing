@@ -58,7 +58,7 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #334155; /* Slate 700 */
+      color: #1e293b; /* Slate 800 */
       background: #ffffff;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -81,7 +81,7 @@
       --bg-dark:      #0b1329;
       --border:       #e2e8f0; /* Slate 200 */
       --text-main:    #0f172a; /* Slate 900 */
-      --text-muted:   #475569; /* Slate 600 */
+      --text-muted:   #334155; /* Slate 700 - higher contrast */
       --radius-lg:    16px;
       --radius-md:    12px;
       --radius-sm:    8px;
@@ -800,24 +800,24 @@
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
       .hero-form-card { max-width: 520px; margin: 0 auto; }
-      .tab-grid { grid-template-columns: 1fr; gap: 32px; }
+      .tab-grid { grid-template-columns: 1fr; gap: 48px; } /* Increased from 32px to let portfolio tabs breathe */
       .tab-info { max-width: 600px; margin: 0 auto; }
     }
 
     @media (max-width: 680px) {
-      .section { padding: 48px 0; }
+      .section { padding: 64px 0; } /* Increased from 48px 0 to give sections breathing room */
       .hero {
         min-height: auto;
       }
       .hero-inner {
-        padding: 12px 12px 24px;
-        gap: 12px;
+        padding: 40px 16px; /* Increased from 12px 12px 24px for breathing room */
+        gap: 32px; /* Increased from 12px for breathing room */
       }
       .hero-eyebrow {
         display: none;
       }
       .hero-title {
-        font-size: 24px;
+        font-size: 26px; /* Slightly adjusted from 24px */
         line-height: 1.25;
         margin-bottom: 8px;
         text-align: center;
@@ -829,20 +829,20 @@
         display: none;
       }
       .hero-form-card {
-        padding: 20px 16px;
+        padding: 24px 20px; /* Increased from 20px 16px */
         border-radius: var(--radius-md);
         width: 100%;
         max-width: 100%;
       }
       .form-card-header {
-        margin: -20px -16px 16px;
-        padding: 12px 16px;
+        margin: -24px -20px 16px;
+        padding: 16px 20px;
       }
       .form-card-header h3 {
-        font-size: 16px;
+        font-size: 17px; /* Adjusted from 16px */
       }
       .form-card-header p {
-        font-size: 11px;
+        font-size: 13px; /* Increased from 11px for readability */
       }
       .form-group {
         margin-bottom: 8px;
@@ -897,8 +897,8 @@
         font-size: 20px;
       }
       .tab-info p {
-        font-size: 13px;
-        margin-bottom: 12px;
+        font-size: 15px; /* Increased from 13px for readability */
+        margin-bottom: 16px; /* Increased from 12px */
       }
       .tab-highlights {
         margin-bottom: 16px;
@@ -919,14 +919,14 @@
       }
       .steps-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 32px; /* Increased from 24px to let steps breathe */
       }
       .step-item p {
-        font-size: 13px;
+        font-size: 14.5px; /* Increased from 13px for readability */
       }
       .testi-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 24px; /* Increased from 16px for breathing room */
       }
       .faq-arrow {
         font-size: 12px;
@@ -996,6 +996,83 @@
       border-radius: 10px;
     }
     #mainLeadForm label { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+
+    /* Bottom contact form styles */
+    .bottom-form-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      max-width: 540px;
+      margin: 32px auto 32px;
+      text-align: left;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-lg);
+    }
+    .bottom-form-card h3 {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .bottom-form-card p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .bottom-form-card .form-group {
+      margin-bottom: 18px;
+    }
+    .bottom-form-card label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .bottom-form-card input, .bottom-form-card select, .bottom-form-card textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px; /* iOS auto-zoom safe */
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .bottom-form-card input::placeholder, .bottom-form-card textarea::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .bottom-form-card input:focus, .bottom-form-card select:focus, .bottom-form-card textarea:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+    }
+    .bottom-form-card option {
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .bottom-form-card textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    @media (max-width: 680px) {
+      .bottom-form-card {
+        padding: 24px 16px;
+        margin-bottom: 24px;
+      }
+      .bottom-form-card h3 {
+        font-size: 19px;
+      }
+      .bottom-form-card p {
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1060,8 +1137,8 @@
           SoCal's Kitchen & ADU Specialists
         </div>
         <h1 class="hero-title fade-up delay-1">
-          The Kitchen You've Always Wanted.<br />
-          <span class="highlight">The ADU That Pays For Itself.</span>
+          Transform Your Home.<br />
+          <span class="highlight">Maximize Its Value.</span>
         </h1>
         <p class="hero-desc fade-up delay-2" style="display: block !important;">
           Fixed-price remodels by Southern California's most trusted crew. Free itemized quote in 24 hours — and 0% APR financing for qualified homeowners.
@@ -1561,14 +1638,41 @@
     <div class="container">
       <h2>Ready to Start Planning?</h2>
       <p>Talk to a local SoCal design consultant and get your free itemized quote today.</p>
-      <div class="cta-form-wrapper" style="max-width: 480px; margin: 0 auto 24px; text-align: left;">
-        <label for="cta-phone" style="display: block; font-size: 14px; font-weight: bold; color: #ffffff; margin-bottom: 8px;">Prefer we call you? Drop your number:</label>
-        <div class="cta-form-inline" style="margin: 0;">
-          <input type="tel" id="cta-phone" placeholder="Enter your phone number" />
-          <button class="btn btn-primary btn-lg" onclick="quickSubmit()">
-            Call Me Now →
+      <div class="bottom-form-card">
+        <h3>Request a Free Quote</h3>
+        <p>Fill out the form below and a local estimator will contact you within 24 hours.</p>
+        <form id="bottomContactForm" onsubmit="handleBottomFormSubmit(event)">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="fname" autocomplete="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="(323) 555-0000" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address (optional)</label>
+            <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Project Type *</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a project type</option>
+              <option value="Kitchen Remodel">🍳 Kitchen Remodel</option>
+              <option value="ADU / Garage Conversion">🏗️ ADU / Garage Conversion</option>
+              <option value="Home Addition">🏠 Home Addition</option>
+              <option value="Whole Home Renovation">🔨 Whole Home Renovation</option>
+              <option value="Other">✚ Something Else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project Details (optional)</label>
+            <textarea name="message" placeholder="Tell us about your project, target start date, etc."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            Send Quote Request →
           </button>
-        </div>
+        </form>
       </div>
       <div class="cta-badges">
         <div class="cta-badge-item">Free Consultation</div>
@@ -1658,25 +1762,66 @@
       if (!wasOpen) item.classList.add('open');
     }
 
-    // ── QUICK CTA FORM (FIXED) ───────────────────────
-    async function quickSubmit() {
-      const phone = document.getElementById('cta-phone').value.trim();
-      if (!phone) { document.getElementById('cta-phone').focus(); return; }
+    // ── BOTTOM CONTACT FORM SUBMISSION ───────────────────────
+    async function handleBottomFormSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const btn = f.querySelector('button[type="submit"]');
+      const origText = btn.innerHTML;
+      btn.innerHTML = '⏳ Sending…';
+      btn.disabled = true;
+
+      const data = {
+        name: f.fname.value.trim(),
+        email: f.email.value.trim() || 'no-email@socalremodelquotes.com',
+        phone: f.phone.value.trim(),
+        project_type: f.service.value,
+        budget: 'Not specified',
+        message: f.message.value.trim() || 'Submitted via bottom contact form'
+      };
+
       try {
-        await fetch('/api/leads', {
+        const r = await fetch('/api/leads', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: 'Callback Request', email: 'no-email@socalremodelquotes.com', phone,
-            project_type: 'call-back', budget: '', message: 'Requested callback via bottom CTA' })
+          body: JSON.stringify(data)
         });
-      } catch (e) { console.error(e); }
-      window.location.href = 'thank-you.html?' + new URLSearchParams({ phone, service: 'call-back', ts: Date.now() });
+        if (!r.ok) throw new Error('Submission failed');
+        window.location.href = 'thank-you.html?' + new URLSearchParams({
+          name: data.name,
+          service: data.project_type,
+          ts: Date.now()
+        });
+      } catch (err) {
+        btn.innerHTML = origText;
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call (323) 689-5004.');
+      }
     }
 
-    // ── ANALYTICS TRACKING HELPERS ───────────────────
-    // phone-call intent
-    document.querySelectorAll('a[href^="tel:"]').forEach(a =>
-      a.addEventListener('click', () => { if (window.fbq) fbq('track', 'Contact'); }));
+    // ── ANALYTICS & CALL PERSISTENCE TRACKING ───────────────────
+    // phone-call intent tracking and database logging
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.fbq) fbq('track', 'Contact');
+        
+        const rawPhone = a.getAttribute('href').replace('tel:', '').trim();
+        // Database click storage (bypasses Resend notifications)
+        fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Phone Call Click',
+            email: 'phone-call@socalremodelquotes.com',
+            phone: rawPhone || '(323) 689-5004',
+            project_type: 'phone-call',
+            budget: '',
+            message: 'User clicked to call from ' + window.location.pathname + window.location.search
+          }),
+          keepalive: true
+        }).catch(err => console.error('Call tracking error:', err));
+      });
+    });
     // mid-funnel signal for Meta while Lead volume is low
     let vcFired = false;
     addEventListener('scroll', () => {
