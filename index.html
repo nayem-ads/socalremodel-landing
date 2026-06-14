@@ -10,6 +10,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+  <link rel="preload" href="logo.png" as="image" type="image/png" />
+  <link rel="preload" href="hero_bg.webp" as="image" type="image/webp" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Meta Pixel Code -->
@@ -1437,7 +1442,7 @@
             <input id="hf-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel" inputmode="tel" required />
           </div>
           <div class="hf-field">
-            <input id="hf-zip" name="zip" type="text" placeholder="Zip code" inputmode="numeric" maxlength="5" required />
+            <input id="hf-zip" name="zip" type="text" placeholder="Zip code" autocomplete="postal-code" inputmode="numeric" maxlength="5" required />
           </div>
           <div class="hf-field">
             <select id="hf-service" name="service" required>
@@ -1517,8 +1522,8 @@
           <div class="tab-visual">
             <div class="before-after-wrapper">
               <div class="comparison-slider">
-                <img src="kitchen_after.webp" alt="Kitchen After" />
-                <div class="img-before-wrapper"><img src="kitchen_before.webp" alt="Kitchen Before" /></div>
+                <img src="kitchen_after.webp" alt="Kitchen After" loading="lazy" />
+                <div class="img-before-wrapper"><img src="kitchen_before.webp" alt="Kitchen Before" loading="lazy" /></div>
                 <div class="slider-handle"><div class="handle-line"></div><div class="handle-button">↔</div><div class="handle-line"></div></div>
                 <input type="range" min="0" max="100" value="50" class="slider-range-input" oninput="handleSliderMove(this)" />
                 <span class="badge-label before-label">Before</span><span class="badge-label after-label">After</span>
@@ -1543,8 +1548,8 @@
           <div class="tab-visual">
             <div class="before-after-wrapper">
               <div class="comparison-slider">
-                <img src="adu_after.webp" alt="ADU After" />
-                <div class="img-before-wrapper"><img src="adu_before.webp" alt="ADU Before" /></div>
+                <img src="adu_after.webp" alt="ADU After" loading="lazy" />
+                <div class="img-before-wrapper"><img src="adu_before.webp" alt="ADU Before" loading="lazy" /></div>
                 <div class="slider-handle"><div class="handle-line"></div><div class="handle-button">↔</div><div class="handle-line"></div></div>
                 <input type="range" min="0" max="100" value="50" class="slider-range-input" oninput="handleSliderMove(this)" />
                 <span class="badge-label before-label">Before</span><span class="badge-label after-label">After</span>

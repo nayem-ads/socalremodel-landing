@@ -11,6 +11,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+  <link rel="preload" href="logo.png" as="image" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- ========================
@@ -577,7 +581,7 @@
             <div class="qual-step" data-qs="5">
               <p class="qual-q">Where should we send your detailed cost review?</p>
               <div class="qual-input-group">
-                <input type="email" name="email" id="qual-email" class="qual-input" placeholder="name@domain.com" required />
+                <input type="email" name="email" id="qual-email" class="qual-input" placeholder="name@domain.com" autocomplete="email" required />
               </div>
               <button type="submit" class="qual-submit" id="qualSubmitBtn">
                 Get My Tailored Estimate &rarr;
