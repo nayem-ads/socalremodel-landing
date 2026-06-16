@@ -115,6 +115,12 @@
     img { max-width: 100%; display: block; }
 
     /* Google Trust Badge */
+    .hero-badges-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
     .google-badge {
       display: inline-flex;
       align-items: center;
@@ -123,7 +129,31 @@
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 100px;
       padding: 8px 18px 8px 12px;
-      margin-bottom: 22px;
+      margin-bottom: 0;
+    }
+    .discount-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.15));
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      border-radius: 100px;
+      padding: 8px 16px;
+      margin-bottom: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
+      animation: pulse-glow 2s infinite ease-in-out;
+    }
+    .discount-badge .icon {
+      font-size: 14px;
+      color: var(--accent);
+    }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15); }
+      50% { transform: scale(1.02); box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3); }
     }
     .google-badge-stars {
       display: flex;
@@ -860,7 +890,7 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #10b981, #059669);
+      background: var(--accent-gradient);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -868,7 +898,7 @@
       font-weight: 900;
       color: #fff;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(16,185,129,0.35);
+      box-shadow: 0 2px 6px rgba(249,115,22,0.35);
     }
 
     /* ============================
@@ -889,7 +919,8 @@
       .hero-title { font-size: 28px; line-height: 1.15; margin-bottom: 16px; text-align: left; letter-spacing: -0.02em; }
       .hero-desc { display: block !important; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0; font-weight: 400; }
       .hero-trust-pills { gap: 8px; margin-top: 20px; }
-      .google-badge { margin-bottom: 18px; }
+      .hero-badges-wrapper { margin-bottom: 18px; }
+      .google-badge { margin-bottom: 0; }
       .hero-form-card { padding: 24px 20px; border-radius: var(--radius-md); width: 100%; max-width: 100%; }
       .form-card-header { margin: -24px -20px 16px; padding: 16px 20px; }
       .form-card-header h3 { font-size: 17px; }
@@ -1398,26 +1429,83 @@
     .testimonials,
     .faq,
     .quiz-funnel,
+    .gallery-section,
     .footer {
       content-visibility: auto;
       contain-intrinsic-size: 600px;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-overlay-text {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11, 19, 41, 0.9) 0%, rgba(11, 19, 41, 0.4) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-overlay-text h4 {
+      color: #fff;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+    .gallery-overlay-text p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 13px;
+      margin: 0;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-item:hover .gallery-overlay-text {
+      opacity: 1;
+    }
+
+    @media (max-width: 680px) {
+      .gallery-overlay-text {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(11, 19, 41, 0.8) 0%, rgba(11, 19, 41, 0.2) 80%);
+        padding: 16px;
+      }
+      .gallery-overlay-text h4 {
+        font-size: 16px;
+      }
+      .gallery-overlay-text p {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-inner">
-        <div class="topbar-item location">Serving Los Angeles, Orange County, & San Diego</div>
-        <div class="topbar-group">
-          <div class="topbar-item">500+ Projects Completed</div>
-          <div class="topbar-item">CA Licensed, Bonded & Insured</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- HEADER -->
   <header class="header">
@@ -1475,21 +1563,26 @@
 
       <!-- HERO CONTENT — order:1 = left on desktop, below form on mobile -->
       <div class="hero-content" style="order:1;">
-        <div class="google-badge fade-up">
-          <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-          </svg>
-          <div class="google-badge-stars">
-            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="hero-badges-wrapper fade-up">
+          <div class="google-badge">
+            <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <div class="google-badge-stars">
+              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="google-badge-text">4.9 &nbsp;&middot;&nbsp; 500+ Reviews</span>
           </div>
-          <span class="google-badge-text">4.9 &nbsp;&middot;&nbsp; 500+ Reviews</span>
+          <div class="discount-badge">
+            <span class="icon">🏷️</span> Up to 25% OFF Summer Special
+          </div>
         </div>
         <div class="hero-eyebrow fade-up">Licensed SoCal Remodeling Specialists</div>
         <h1 class="hero-title fade-up delay-1">
@@ -1583,6 +1676,47 @@
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section class="section gallery-section" id="gallery" style="background: var(--white); padding: 80px 0;">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 50px;">
+        <span class="badge">Completed Projects</span>
+        <h2 style="font-size: clamp(24px, 4vw, 36px); margin: 10px 0;">Realistic High-Class Workmanship</h2>
+        <p>Browse through actual photos of our completed luxury remodels in Southern California, built to the highest custom specifications.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="gallery_1.webp" alt="Luxury Bathroom Remodel" loading="lazy" />
+          <div class="gallery-overlay-text">
+            <h4>Luxury Bathroom Remodel</h4>
+            <p>Marble flooring, dual vanities, freestanding tub</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery_2.webp" alt="Modern Living Room Renovation" loading="lazy" />
+          <div class="gallery-overlay-text">
+            <h4>Modern Living Room</h4>
+            <p>Built-ins, floor-to-ceiling glass, custom fireplace</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery_3.webp" alt="High-End Gourmet Kitchen" loading="lazy" />
+          <div class="gallery-overlay-text">
+            <h4>Gourmet Chef Kitchen</h4>
+            <p>Waterfall marble island, custom cabinetry, brass fixtures</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery_4.webp" alt="Premium Backyard Patio & Outdoor Kitchen" loading="lazy" />
+          <div class="gallery-overlay-text">
+            <h4>Premium Outdoor Kitchen</h4>
+            <p>Custom stone veneer barbecue island, modern pergola</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FINANCING -->
   <section class="section-sm financing" style="background: var(--bg-light);">
     <div class="container">
@@ -1622,9 +1756,9 @@
           <h2 class="quiz-title">Not sure what your project will cost?</h2>
           <p class="quiz-sub">Answer 5 short questions and we'll match you with the right specialist and a realistic cost range within 24 hours. No sales pressure involved.</p>
           <ul class="quiz-bullets">
-            <li>Kitchen remodels from $30K to $120K</li>
-            <li>ADU conversions from $80K to $250K</li>
-            <li>Home additions from $60K to $200K</li>
+            <li>Fully licensed, bonded, and insured</li>
+            <li>Itemized fixed-price estimates in 24 hours</li>
+            <li>Complete permit, design, and build process</li>
           </ul>
         </div>
 
@@ -1980,7 +2114,7 @@
         // Fail silently — still redirect so lead is not lost
       }
 
-      if (window.fbq) fbq('track', 'Lead');
+      // Lead tracking is handled exclusively on thank-you.html to prevent double-counting.
       const params = new URLSearchParams({
         name, service, ts: Date.now()
       });

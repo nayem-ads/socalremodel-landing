@@ -62,7 +62,7 @@ async function sendLeadEmail(name, email, phone, projectType, budget, message) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'SoCal Remodel Quotes <onboarding@resend.dev>',
+        from: process.env.FROM_EMAIL || 'SoCal Remodel Quotes <onboarding@resend.dev>',
         to: recipient,
         subject: `New Lead: ${name} (${projectType})`,
         html: `
@@ -137,7 +137,7 @@ async function sendQualifiedLeadEmail(name, email, phone, projectType, budget, m
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'SoCal Remodel Quotes <onboarding@resend.dev>',
+        from: process.env.FROM_EMAIL || 'SoCal Remodel Quotes <onboarding@resend.dev>',
         to: recipient,
         subject: `🔥 QUALIFIED Lead: ${name} (${projectType})`,
         html: `
